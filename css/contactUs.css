@@ -1,0 +1,17 @@
+body {
+    background-color: lightblue;
+  }
+
+.contact-us-container{
+    margin-top:15%;
+}
+.contact-us-header{
+    margin-top: 25px;
+    text-align:center;
+    font-size:50px;
+}
+.phone-email{
+    text-align:center;
+    margin-top:10px;
+    font-size:25px;
+}

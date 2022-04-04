@@ -1,0 +1,28 @@
+.about-us-header{
+    margin-top: 25px;
+    text-align:center;
+}
+.ryu-names{
+    text-align:center;
+    margin-top:10px;
+}
+.content{
+    width:500px;
+    text-align:center;
+    margin-left: 700px;
+    color: grey;
+    margin-bottom: 50px;
+}
+.tableheader{
+    text-align:center;
+}
+.table-container{
+    text-align:center;
+    display:flex;
+    justify-content: center;
+}
+h4{
+    width:500px;
+    font-weight:normal;
+    font-style:italic;
+}
