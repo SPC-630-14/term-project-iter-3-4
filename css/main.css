@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Verdana, sans-serif;
+  overflow-x: hidden;
+}
+.mySlides {
+  display: none;
+}
+img {
+  vertical-align: middle;
+}
+.img-1,
+.img-2,
+.img-3 {
+  width: 1300px;
+  height: 602px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 65vw;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: black;
+  font-size: 25px;
+  padding: 8px 12px;
+  position: absolute;
+  left: 45px;
+  top: 750px;
+  width: 100%;
+  text-align: center;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {
+    font-size: 11px;
+  }
+}
+
+footer {
+  background-color: #f9f9f9;
+  height: 80vh;
+  margin-top: 100px;
+}
+.f-headers {
+  display: flex;
+  justify-content: center;
+}
+.about,
+.reviews,
+.products,
+.account {
+  padding: 75px;
+  margin-left: 70px;
+  font-weight: bold;
+}
+.s-header {
+  padding: 30px 0px;
+}
+
+.details-AU,
+.details-Review,
+.details-Products,
+.details-ACC {
+  position: absolute;
+  top: 1012px;
+}
+.details-AU {
+  left: 492px;
+}
+.details-Review {
+  left: 782px;
+}
+.details-Products {
+  left: 1070px;
+}
+.details-ACC {
+  left: 1390px;
+}
+
+.about-logo,
+.jobs-logo,
+.d-logo,
+.review-logo,
+.makeR-logo,
+.comments-logo,
+.fur-logo,
+.office-logo,
+.beds-logo,
+.br-logo,
+.acc-logo,
+.priv-logo,
+.gen-logo {
+  margin-top: 35px;
+  font-size: 14px;
+}
+
+.line {
+  border: 1px solid #ebebeb;
+  margin-top: 350px;
+}

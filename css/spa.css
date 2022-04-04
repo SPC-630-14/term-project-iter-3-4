@@ -1,0 +1,266 @@
+* {
+  margin: 0;
+  font-family: "Titillium Web", sans-serif;
+  text-decoration: none;
+}
+#main-nav-bar {
+  background-color: #fff;
+}
+#sec-nav-bar {
+  background-color: #5b5a58;
+}
+.nav-sys-logo {
+  position: relative;
+  top: 12px;
+  margin-left: 1.4em;
+}
+.nav-logo {
+  text-decoration: none;
+  color: black;
+}
+#nav-content {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  bottom: 15px;
+  right: 5%;
+}
+.nav-elem {
+  color: black;
+  text-decoration: none;
+  margin-right: 5%;
+  font-size: 18px;
+}
+.nav-elem:hover {
+  color: grey;
+  cursor: pointer;
+}
+#login-Btn,
+#logOut-Btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid black;
+  min-width: 75px;
+  font-size: 15px;
+  margin-left: 8px;
+}
+#login-Btn:hover,
+#logOut-Btn:hover {
+  background-color: #82807e;
+}
+.s-cart {
+  margin-left: 10px;
+  position: relative;
+  bottom: 5px;
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+/* SECONDARY NAV*/
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+li {
+  padding: 5px;
+  font-size: 12px;
+}
+a {
+  color: black;
+}
+
+.f-menu,
+.h-menu,
+.b-menu,
+.br-menu {
+  margin-left: 2.6em;
+}
+
+#f-Btn,
+#h-Btn,
+#b-Btn,
+#br-Btn {
+  background-color: transparent;
+  color: #fff;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+#f-Btn:hover,
+#h-Btn:hover,
+#b-Btn:hover,
+#br-Btn:hover {
+  background-color: #82807e;
+}
+
+.f-dropdown-menu,
+.h-dropdown-menu,
+.b-dropdown-menu,
+.br-dropdown-menu {
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 150px;
+  z-index: 1;
+}
+
+.f-dropdown-menu a:hover,
+.h-dropdown-menu a:hover,
+.b-dropdown-menu a:hover,
+.br-dropdown-menu a:hover {
+  text-decoration: underline;
+}
+
+.wrapper {
+  display: flex;
+}
+/*----------------------------------------------------------------*/
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #5b5a58;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar p {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 15px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+/*---------------------------------------------------- */
+ul,
+li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.shopping-cart ul {
+  border: dotted 3px #444;
+  height: 60vh;
+  overflow: auto;
+  background-color: white;
+  margin-top: 25px;
+}
+.total {
+  color: white;
+  margin-left: 10px;
+}
+.drag-items-msg {
+  color: #818181;
+  display: flex;
+  justify-content: center;
+  margin-top: 85px;
+}
+
+/*---------------------------------------------------- */
+/* ITEMS */
+.section-header {
+  text-align: center;
+}
+
+.items {
+  margin-left: 110px;
+}
+
+.item-Product .all-product-images {
+  width: 350px;
+  height: 350px;
+}
+
+.item-Product {
+  padding: 50px;
+  margin-left: 100px;
+}
+.description-1,
+.description-2,
+.description-3,
+.description-4,
+.description-5 {
+  display: inline-block;
+  position: absolute;
+  left: 750px;
+}
+.description-1 {
+  top: 300px;
+}
+.description-2 {
+  top: 850px;
+}
+.description-3 {
+  top: 1350px;
+}
+.description-4 {
+  top: 1860px;
+}
+.description-5 {
+  top: 2380px;
+}
+
+.items .all-product-images {
+  width: 100px;
+  height: 100px;
+}
+
+footer {
+  background-color: #f9f9f9;
+  height: 20vh;
+  margin-top: 210px;
+}
+.f-headers {
+  display: flex;
+  justify-content: center;
+}
+.about,
+.reviews,
+.products,
+.account {
+  padding: 75px;
+  margin-left: 70px;
+  font-weight: bold;
+}
+.s-header {
+  padding: 30px 0px;
+}
