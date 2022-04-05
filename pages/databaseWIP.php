@@ -13,55 +13,7 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootsthapcdn.com/bootsthap/3.4.0/js/bootsthap.min.js"></script>
-    <style>
-      .btn {
-        margin-top: 50px;
-        padding: 8px 20px;
-        border-radius: 4px;
-        outline: none;
-        border: none;
-        font-size: 17px;
-      }
-
-      .form-control {
-        width: 85%;
-        margin-top: 5px;
-        padding: 9px;
-        font-size: 20px;
-      }
-
-      .form-group {
-        margin-top: 25px;
-      }
-
-      .form-check-label,
-      .form-check-input {
-        position: relative;
-        top: 10px;
-      }
-
-      .container {
-        background-color: rgba(245, 245, 245, 0.945);
-        height: 760px;
-        width: 6%;
-        border-radius: 10px;
-        position: absolute;
-        left: 50px;
-        top: 50px;
-        z-index: +1;
-        padding: 70px;
-      }
-      table,
-      td {
-        
-        margin-left: auto;
-        margin-right: auto;
-        border: 1px solid grey;
-        border-collapse: collapse;
-        font-size: 15px;
-        padding: 15px;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../css/databaseMaintain/databaseWIP.css"> 
   </head>
 
   <body>
