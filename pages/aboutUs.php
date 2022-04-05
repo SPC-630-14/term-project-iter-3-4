@@ -1,15 +1,7 @@
-<!-- about -->
-<!DOCTYPE html>
-<html>
 <head>
-	<title>About Us Page</title>
-	<div class="navigateBack">
-		<a href="#!home"><h2>To go back to the home page, click here</h2></a>
-	</div>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>About Us</title>
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-	<link rel="stylesheet" type="text/css" href="css/aboutUs/aboutUs.css">
+	<link rel="stylesheet" type="text/css" href="css/main/aboutUs.css">
 </head>
 
 <body>
@@ -17,7 +9,7 @@
 		<h1 class="about-us-header">About Us</h1>
 		<p class="ryu-names">Name: Jacob Rokhvarg | SN: 500943379</p>
 		<p class="ryu-names">Name: Ralph Liton | SN: 500958086</p>
-		<p class="ryu-names">Georgz Simone Ilagan | SN: 50095818</p>
+		<p class="ryu-names">Georgz Simone Ilagan | SN: 500958187</p>
 	</div>
 	<div class="content">
 			<p>
@@ -45,15 +37,17 @@
 
 	<table style="width:60%;">
 	<tr>
-		<th><h2>Product<h2></th>
-		<th><h2>Image<h2></th>
-		<th><h2 style="margin-right:150px;">Description<h2></th>
+		<th><h2>Product</h2></th>
+		<th><h2>Image</h2></th>
+		<th><h2 style="margin-right:150px;">Description</h2></th>
 	</tr>
 	
 	<!-- Chairs -->
 	<tr>
 		<td><h3>Chairs: </h3></td>
-		<td><div id="chairImage"><img src="chair.JPG" alt="" border=1 height=250 width=250></img></div></td>
+		<td><div id="chairImage">
+			<img src="chair.JPG" alt="" border=1 height=250 width=250/>
+		</div></td>
 		<td>
 		<div id="chairDescription">
 		<p>
@@ -212,4 +206,3 @@
 </div>
 
 </body>
-</html>
