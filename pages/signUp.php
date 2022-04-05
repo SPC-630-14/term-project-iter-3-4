@@ -1,6 +1,7 @@
 <head>
   <title>Sign Up!</title>
   <link rel="stylesheet" type="text/css" href="css/signUpLogin/signup.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
       </head>
 
 <body>
@@ -52,9 +53,10 @@
           Sign Up
         </button>
         <input type="hidden" name="action" value="registration"/>
-        <div class="alert alert-danger" role="alert" id="responseContainer">wow</div>
+
       </form>
     </div>
   </div>
+  <div id="dialog" title="Errors!!!"></div>
   <script src="js/signUp.js"></script>
 </body>

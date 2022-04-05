@@ -1,25 +1,21 @@
-$('form').on('submit', function(e) {
+$("form").on("submit", function (e) {
   e.preventDefault();
 
   $.ajax({
-    method: 'POST',
-    url: 'php/signUpLogin/signUp.php',
-    data: $('form').serialize(),
-    success: function(response) {
+    method: "POST",
+    url: "php/signUpLogin/signUp.php",
+    data: $("form").serialize(),
+    success: function (response) {
       let res = JSON.parse(response);
-      $('#responseContainer').removeClass('alert-danger');
-      $('#responseContainer').addClass('alert-success');
-      $('#responseContainer').html(res.msg);
-      $('#responseContainer').show();
-      
+      alert(res.msg);
+      if (res.msg == "Your registration is complete!")
+        window.location.href = "#!login";
     },
     error: function (response) {
       let res = JSON.parse(response.responseText);
-      $('#responseContainer').addClass('alert-danger');
-      $('#responseContainer').removeClass('alert-success');
-      $('#responseContainer').html(res.msg);
-      $('#responseContainer').show();
-
-    }
+      $('#dialog').html(res.msg);
+      $('#dialog').show();
+      $("#dialog").dialog();
+    },
   });
 });
