@@ -1,6 +1,5 @@
 $("form").on("submit", function (e) {
     e.preventDefault();
-    console.log("lmao");
 
     $.ajax({
         method: "POST",
@@ -9,8 +8,13 @@ $("form").on("submit", function (e) {
         success: function (response) {
             let res = JSON.parse(response);
             alert(res.msg);
-            if (res.msg == "Your Logged In!")
+            if (res.msg == "Your Logged In!") {
+                document.getElementById("login").setAttribute("href", "#!");
+                document.getElementById("login-Btn").innerHTML = res.user;
+                login();
+                document.getElementById("log-out").setAttribute("href", "#!logOut");
                 window.location.href = "#!";
+            }
         },
         error: function (response) {
             let res = JSON.parse(response.responseText);

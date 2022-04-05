@@ -33,7 +33,7 @@ if ( !empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST' && !empty($_POST['a
     
                 startShoppingSession($_SESSION['userID']);
                 http_response_code( 200 );
-                echo json_encode( [ 'msg' => 'Your Logged In!' ] );
+                echo json_encode( [ 'msg' => 'Your Logged In!', 'user' => $login[0] ] );
     
                 exit;
             }
