@@ -18,5 +18,9 @@ app.config(function ($routeProvider) {
         templateUrl: "pages/signUp.php",
 
       })
+    .when("/login", {
+        templateUrl: "pages/login.php",
+
+      })
     .otherwise({ redirectTo: "/" });
 });
