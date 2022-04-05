@@ -1,6 +1,10 @@
 <head>
   <title>Login!</title>
   <link rel="stylesheet" type="text/css" href="css/signUpLogin/login.css" />
+  <link
+    rel="stylesheet"
+    href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"
+  />
 </head>
 
 <body>
@@ -12,7 +16,7 @@
         Don't have an Account?
         <a class="redirect" href="#!signUp">Create an Account!</a>
       </h4>
-      <form method="post" action="login.php">
+      <form action="" method="post">
         <div class="form-group">
           <label>Username:</label>
           <br />
@@ -23,11 +27,13 @@
           <br />
           <input class="form-control" name="password" type="text" />
         </div>
-
         <button type="submit" class="btn btn-info" name="button" value="submit">
           Login
         </button>
+        <input type="hidden" name="action" value="login" />
       </form>
     </div>
   </div>
+  <div id="dialog1" title="Errors!!!"></div>
+  <script src="js/login.js"></script>
 </body>
