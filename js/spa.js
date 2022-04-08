@@ -84,3 +84,24 @@ function closeNav() {
     document.getElementById("shopping-cart").style.width = "0";
     document.getElementById("s-cart").style.marginLeft = "10px";
 }
+
+
+function loginReload() {
+    $.ajax({
+        method: "POST",
+        url: "php/signUpLogin/reloadLogin.php",
+        success: function (response) {
+            let res = JSON.parse(response);
+            document.getElementById("login").setAttribute("href", "#!");
+            document.getElementById("login-Btn").innerHTML = res.user;
+            login();
+            document.getElementById("log-out").setAttribute("href", "#!logOut");
+
+        },
+        error: function () {
+            console.log("loginReload Failed or user not Logged in");
+        },
+    });
+};
+
+window.onload = loginReload();
