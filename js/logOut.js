@@ -1,4 +1,4 @@
-function lmao() {
+function logOut() {
 
     $.ajax({
         method: "POST",
@@ -7,11 +7,14 @@ function lmao() {
             document.getElementById("login").setAttribute("href", "#!login");
             document.getElementById("login-Btn").innerHTML = "Login";
             $("#logOut-Btn").remove();
-            alert("You have logged off.");
             window.location.href = "#!";
+            alert("You have logged off.");
         },
+        error: function () {
+            window.location.href = "#!";
+            alert("You have logged off.");
+        }
     });
 };
 
-
-window.onload = lmao();
+window.onload = logOut();

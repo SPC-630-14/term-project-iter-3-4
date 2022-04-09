@@ -11,7 +11,7 @@ if (session_status() == PHP_SESSION_NONE) {
     else {
         http_response_code ( 406 );
      }
-  }
+}
 else {
     http_response_code ( 406 );
 }
