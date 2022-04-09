@@ -26,6 +26,54 @@ app.config(function ($routeProvider) {
       templateUrl: "pages/logOut.html",
 
     })
+    .when("/chairs", {
+      templateUrl: "pages/catalogue.html",
+      controller: "chairController",
+    })
+    .when("/tables", {
+      templateUrl: "pages/catalogue.html",
+      controller: "tableController",
+    })
+    .when("/sofas", {
+      templateUrl: "pages/catalogue.html",
+      controller: "sofaController",
+    })
+    .when("/drawers", {
+      templateUrl: "pages/catalogue.html",
+      controller: "drawerController",
+    })
+    .when("/lamps", {
+      templateUrl: "pages/catalogue.html",
+      controller: "lampController",
+    })
+    .when("/chargers", {
+      templateUrl: "pages/catalogue.html",
+      controller: "chargerController",
+    })
+    .when("/beds", {
+      templateUrl: "pages/catalogue.html",
+      controller: "bedController",
+    })
+    .when("/mattresses", {
+      templateUrl: "pages/catalogue.html",
+      controller: "mattressController",
+    })
+    .when("/nightstands", {
+      templateUrl: "pages/catalogue.html",
+      controller: "nightstandController",
+    })
+    .when("/mirrors", {
+      templateUrl: "pages/catalogue.html",
+      controller: "mirrorController",
+    })
+    .when("/sinks", {
+      templateUrl: "pages/catalogue.html",
+      controller: "sinkController",
+    })
+    .when("/bins", {
+      templateUrl: "pages/catalogue.html",
+      controller: "binController",
+    })
 
     .otherwise({ redirectTo: "/" });
 });

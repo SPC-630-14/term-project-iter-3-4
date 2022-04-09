@@ -6,7 +6,10 @@ $("form").on("submit", function (e) {
         url: "php/signUpLogin/login.php",
         data: $("form").serialize(),
         success: function (response) {
+
             let res = JSON.parse(response);
+            console.log(response);
+            console.log(res);
             alert(res.msg);
             if (res.msg == "Your Logged In!") {
                 document.getElementById("login").setAttribute("href", "#!");

@@ -1,0 +1,26 @@
+<head>
+  <title>Shopping!</title>
+  <link rel="stylesheet" type="text/css" href="" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css" />
+</head>
+
+<body>
+  <section class="products" id="products">
+    <ul>
+      <li draggable="true" ng-repeat="bang in items.items" class="itemProduct" id="{{bang.type}}{{bang.index}}"
+        data-price="{{bang.cost}}">
+        <img class="all-product-images" src="{{bang.image}}">
+        <h1>{{bang.itemName}}</h1>
+        <span><b>Price:</b> {{bang.cost}}</span>
+        <input type="hidden" name="{{bang.type}}{{bang.index}}">
+        <div>
+          <span class="Weight"><b>{{bang.weight}}</b></span>
+          <span class="Length"><b>{{bang.length}}</b></span>
+          <span class="Height"><b>{{bang.height}}</b></span>
+          <span class="Colour"><b>{{bang.colour}}</b></span>
+        </div>
+        <hr>
+      </li>
+    </ul>
+  </section>
+</body>
