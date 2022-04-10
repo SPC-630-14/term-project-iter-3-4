@@ -1,0 +1,36 @@
+.reviewCart-Box{
+    margin-left:350px; 
+    margin-top:100px;
+ }
+
+
+ .review-product-images{
+   margin-top:10px;
+   width:105px;
+   height:105px;
+ }
+ .reviewItems-Description{
+  margin-left:120px;
+  position: relative;
+  bottom: 85px;
+  margin-bottom: -40px
+
+ }
+ .reviewItems-TotalPrice{
+   padding: 10px 0px;
+   width: 300px;
+ }
+ .reviewItems-Checkout-Btn{
+   padding: 10px;
+   margin-top: 15px;
+   margin-bottom: 90px;
+   width: 130px;
+ }
+
+ .sub-total{
+   font-weight:bold;
+   margin-left:550px;
+   margin-bottom: -500px;
+   position:relative;
+   bottom: 35px;
+ }

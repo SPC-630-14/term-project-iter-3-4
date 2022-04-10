@@ -74,6 +74,10 @@ app.config(function ($routeProvider) {
       templateUrl: "pages/catalogue.html",
       controller: "binController",
     })
+    .when("/checkout", {
+      templateUrl: "pages/checkout.html",
+      controller: "checkoutController",
+    })
 
     .otherwise({ redirectTo: "/" });
 });
