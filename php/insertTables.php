@@ -215,5 +215,14 @@ $insertItemBins = array (
         VALUES ('BIN5','Pedal Waste Bin', 9.99, 2, 25.00, 30.00,30.00,50.00,'black','../aboutUsImages/Bathroom/Bins/Pedal-Waste-Bin.JPG')",
 );
 
+$insertCards = array (
+    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC, status) 
+        VALUES (1, 'Georgz Ilagan', '4545454545454545', '06/30', 321, 'Default')",
+    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC, status) 
+        VALUES (2, 'Ralph Liton', '6262626262626262', '06/30', 321, 'Default')",
+    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC, status) 
+        VALUES (3, 'Jacob Rokhvarg', '8989898989898989', '06/30', 321, 'Default')"
+);
+
 
 ?>

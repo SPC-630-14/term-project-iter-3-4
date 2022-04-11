@@ -1,0 +1,159 @@
+<head>
+  <title>Select!</title>
+  <style>
+    .reviewItems-Container {
+      float: left;
+    }
+    .reviewDelivery-Box {
+      width: 360px;
+      height: 200px;
+      z-index: 15;
+      top: 32%;
+      left: 50%;
+      margin: 50px 0 0 250px;
+      float: left;
+    }
+    .store-Branch,
+    .store-Carrier,
+    .store-Date,
+    .store-Time {
+      font-weight: bold;
+      font-size: 2.2rem;
+    }
+    .store-Branch-Select,
+    .store-Carrier-Select,
+    .store-Date-Input,
+    .store-Time-Input {
+      padding: 10px;
+      margin: 20px 0px;
+      margin-bottom: 50px;
+      position: relative;
+      right: 100px;
+      width: 550px;
+      background-color: #f5f5f5;
+      border: 1px solid lightgrey;
+      border-radius: 5px;
+    }
+
+    .store-Branch-Select:hover,
+    .store-Carrier-Select:hover,
+    .store-Date-Input:hover,
+    .store-Time-Input:hover {
+      background-color: #dbdbdb;
+    }
+
+    .store-Carrier {
+      margin-left: 50px;
+    }
+    .store-Date {
+      margin-left: 35px;
+    }
+    .store-Time {
+      margin-left: 35px;
+    }
+
+    .store-Date-Input,
+    .store-Time-Input {
+      width: 525px;
+    }
+
+    .Proceed {
+      padding: 10px;
+      margin-left: 100px;
+      margin-bottom: 200px;
+      position: relative;
+      right: 100px;
+      width: 350px;
+      border: 1px solid lightgrey;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reviewDelivery-Box">
+    <form name="deliveryPaymentForm" ng-submit="submitFormData()">
+      <label class="store-Branch"> Choose Branch:</label>
+      <select
+        id="store"
+        name="store"
+        class="store-Branch-Select"
+        ng-model="formData.store"
+      >
+        <option ng-repeat="store in address" value="{{store.address}}">
+          {{store.address}}
+        </option>
+      </select>
+      <label class="store-Carrier">Choose Carrier:</label>
+      <select
+        name="truckCarrier"
+        class="store-Carrier-Select"
+        ng-model="formData.truck"
+      >
+        <option
+          ng-model="store"
+          ng-repeat="truck in carrier"
+          value="{{truck.carrier}}"
+        >
+          {{truck.carrier}}
+        </option>
+      </select>
+      <label class="store-Carrier">Delivery Type:</label>
+      <select
+        name="deliveryType"
+        class="store-Carrier-Select"
+        ng-model="formData.type"
+      >
+        <option value="standard">Standard Delivery</option>
+        <option value="express">Express Delivery</option>
+      </select>
+      <label class="store-Branch"> Choose Payment:</label><br />
+      <a href="#!payment">Dont have one? click me to add one!</a>
+      <select
+        id="payment"
+        name="store"
+        class="store-Branch-Select"
+        ng-model="formData.payment"
+      >
+        <option
+          ng-model="payment"
+          ng-repeat="card in paymentMethods"
+          value="{{card.payment}}"
+        >
+          ************{{card.payment}}
+        </option>
+      </select>
+      <label class="store-Date">Date for Delivery</label>
+      <input
+        class="store-Date-Input"
+        name="date"
+        type="date"
+        ng-model="formData.date"
+      /><br />
+      <label class="store-Time">Time for Delivery</label>
+      <input
+        class="store-Time-Input"
+        name="time"
+        type="time"
+        ng-model="formData.time"
+      /><br />
+      <button class="Proceed">Proceed</button>
+    </form>
+  </div>
+  <!-- <div class="reviewItems-Container" ng-repeat="bang in items.items">
+    <img
+      style="border-radius: 5px"
+      class="review-product-images"
+      src="{{bang.image}}"
+    />
+    <br />
+    <div class="reviewItems-Description">
+      <span style="font-weight: bold">{{bang.itemName}}</span><br />
+      <p class="quantity" style="font-size: 12px; color: grey">
+        Qty: <span style="color: black">{{bang.quantity}}</span>
+      </p>
+      <span style="font-size: 12px; color: grey">${{bang.cost}}</span>
+      <span class="sub-total">${{bang.cost * bang.quantity}}</span>
+    </div>
+  </div> -->
+</body>

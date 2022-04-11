@@ -69,6 +69,7 @@ $cart = "CREATE TABLE Cart (
 $trip = "CREATE TABLE Trip (
     tripID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     truckID INT(6) UNSIGNED,
+    type VARCHAR(100),
     sourceAddress VARCHAR(100),
     destinationAddress VARCHAR(100),
     distance DEC(10,2),
@@ -97,6 +98,18 @@ $coord = "CREATE TABLE Coordinates (
     longitude VARCHAR(100)
     )";
 
-$createTables = array ($user,$truck,$manufacturer,$store,$item,$shopping,$cart,$trip,$order, $coord );
+$card = "CREATE TABLE Card (
+    orderID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    userID INT(6) UNSIGNED,
+    nameOnCard VARCHAR(100),
+    creditCardNumber VARCHAR(16),
+    expirationDate VARCHAR(10),
+    CVC INT(3),
+    status VARCHAR(100), 
+    CONSTRAINT FK_IOP FOREIGN KEY (userID) REFERENCES User(userID)
+    )";
+
+
+$createTables = array ($user,$truck,$manufacturer,$store,$item,$shopping,$cart,$trip,$order,$coord,$card );
 
 ?>

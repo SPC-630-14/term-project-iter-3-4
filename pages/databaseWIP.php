@@ -145,6 +145,8 @@
                   generalQuery($insertItemMirrors);
                   generalQuery($insertItemSinks);
                   generalQuery($insertItemBins);
+
+                  generalQuery($insertCards);
                   break;
                 case "show":
                   include ('../php/showTables.php');
@@ -181,6 +183,7 @@
                   generalQuery($insertItemMirrors);
                   generalQuery($insertItemSinks);
                   generalQuery($insertItemBins);
+                  generalQuery($insertCards);
                   break;
               }
             }

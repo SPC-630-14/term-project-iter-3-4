@@ -1,139 +1,147 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/spa/spa.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="css/spa/spa.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-</head>
+  <body>
+    <!-- header, nav -->
+    <div id="main-nav-bar">
+      <header>
+        <h1 class="nav-sys-logo">
+          <a class="nav-logo" href="../main/main.php">Furniture Palace</a>
+        </h1>
+      </header>
 
-<body>
-  <!-- header, nav -->
-  <div id="main-nav-bar">
-    <header>
-      <h1 class="nav-sys-logo">
-        <a class="nav-logo" href="../main/main.php">Furniture Palace</a>
-      </h1>
-    </header>
+      <nav>
+        <ul id="nav-content">
+          <a class="nav-elem" href="#!">Home</a>
+          <a class="nav-elem" href="#!aboutus">About Us</a>
+          <a class="nav-elem" href="#!contactus">Contact Us</a>
+          <a class="nav-elem" href="#!reviews">Review</a>
+          <a id="login" href="#!login"
+            ><button type="button" id="login-Btn">Login</button></a
+          >
+          <button
+            id="s-cart"
+            class="s-cart"
+            style="margin-left: 15px"
+            onclick="openNav()"
+          >
+            <img
+              class="shop-cart"
+              src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/24/000000/external-shopping-cart-interface-kiranshastry-lineal-kiranshastry-1.png"
+            />
+          </button>
 
-    <nav>
-      <ul id="nav-content">
-        <a class="nav-elem" href="#!">Home</a>
-        <a class="nav-elem" href="#!aboutus">About Us</a>
-        <a class="nav-elem" href="#!contactus">Contact Us</a>
-        <a class="nav-elem" href="#!reviews">Review</a>
-        <a id="login" href="#!login"><button type="button" id="login-Btn">Login</button></a>
-        <button id="s-cart" class="s-cart" style="margin-left: 15px" onclick="openNav()">
-          <img class="shop-cart"
-            src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/24/000000/external-shopping-cart-interface-kiranshastry-lineal-kiranshastry-1.png" />
-        </button>
+          <div id="shopping-cart" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+              >×</a
+            >
+            <a href="#">Shopping Cart</a>
+            <p>Drag items into box below</p>
 
-        <div id="shopping-cart" class="sidebar">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-          <a href="#">Shopping Cart</a>
-          <p>Drag items into box below</p>
+            <section id="cart" class="shopping-cart">
+              <form method="post">
+                <ul></ul>
+                <span class="total">Total: 0.00</span>
+                <button><a href="#!checkout">nice</a></button>
+              </form>
+            </section>
+          </div>
+        </ul>
+      </nav>
+    </div>
 
-          <section id="cart" class="shopping-cart">
-            <form method="post">
-              <ul></ul>
-              <span class="total">Total: 0.00</span>
-              <input name="checkout-button" value="checkout" type="submit"
-                formaction="../serviceDelivery/serviceDeliverCart.php" />
-            </form>
-          </section>
-        </div>
-      </ul>
-    </nav>
-  </div>
+    <div id="sec-nav-bar">
+      <nav>
+        <div class="wrapper">
+          <!-- FURNITURE -->
+          <div class="f-menu">
+            <button id="f-Btn">Living Room</button>
+            <div class="f-dropdown-menu">
+              <ul id="f">
+                <li>
+                  <a href="#!chairs">Chairs</a>
+                </li>
+                <li>
+                  <a href="#!tables">Tables</a>
+                </li>
+                <li>
+                  <a href="#!sofas">Sofas</a>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-  <div id="sec-nav-bar">
-    <nav>
-      <div class="wrapper">
-        <!-- FURNITURE -->
-        <div class="f-menu">
-          <button id="f-Btn">Living Room</button>
-          <div class="f-dropdown-menu">
-            <ul id="f">
-              <li>
-                <a href="#!chairs">Chairs</a>
-              </li>
-              <li>
-                <a href="#!tables">Tables</a>
-              </li>
-              <li>
-                <a href="#!sofas">Sofas</a>
-              </li>
-            </ul>
+          <!-- HOME OFFICE -->
+          <div class="h-menu">
+            <button id="h-Btn">Home Office</button>
+            <div class="h-dropdown-menu">
+              <ul id="h">
+                <li>
+                  <a href="#!drawers">Drawers</a>
+                </li>
+                <li>
+                  <a href="#!lamps">Lamps</a>
+                </li>
+                <li>
+                  <a href="#!chargers">Chargers</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- BEDS -->
+          <div class="b-menu">
+            <button id="b-Btn">Bedroom</button>
+            <div class="b-dropdown-menu">
+              <ul id="b">
+                <li>
+                  <a href="#!beds">Beds</a>
+                </li>
+                <li>
+                  <a href="#!mattresses">Mattresses</a>
+                </li>
+                <li>
+                  <a href="#!nightstands">Nightstands</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- BEDS -->
+          <div class="br-menu">
+            <button id="br-Btn">Bathroom</button>
+            <div class="br-dropdown-menu">
+              <ul id="br">
+                <li>
+                  <a href="#!mirrors">Mirrors</a>
+                </li>
+                <li>
+                  <a href="#!sinks">Sinks</a>
+                </li>
+                <li>
+                  <a href="#!bins">Bins</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-
-        <!-- HOME OFFICE -->
-        <div class="h-menu">
-          <button id="h-Btn">Home Office</button>
-          <div class="h-dropdown-menu">
-            <ul id="h">
-              <li>
-                <a href="#!drawers">Drawers</a>
-              </li>
-              <li>
-                <a href="#!lamps">Lamps</a>
-              </li>
-              <li>
-                <a href="#!chargers">Chargers</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- BEDS -->
-        <div class="b-menu">
-          <button id="b-Btn">Bedroom</button>
-          <div class="b-dropdown-menu">
-            <ul id="b">
-              <li>
-                <a href="#!beds">Beds</a>
-              </li>
-              <li>
-                <a href="#!mattresses">Mattresses</a>
-              </li>
-              <li>
-                <a href="#!nightstands">Nightstands</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- BEDS -->
-        <div class="br-menu">
-          <button id="br-Btn">Bathroom</button>
-          <div class="br-dropdown-menu">
-            <ul id="br">
-              <li>
-                <a href="#!mirrors">Mirrors</a>
-              </li>
-              <li>
-                <a href="#!sinks">Sinks</a>
-              </li>
-              <li>
-                <a href="#!bins">Bins</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
-  <div ng-view></div>
-  <script src="js/routing.js"></script>
-  <script src="js/service.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/spa.js"></script>
-  <script src="js/catalogue.js"></script>
-</body>
-
+      </nav>
+    </div>
+    <div ng-view></div>
+    <script src="js/routing.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/spa.js"></script>
+    <script src="js/catalogue.js"></script>
+  </body>
 </html>

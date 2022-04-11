@@ -1,4 +1,4 @@
-var app = angular.module("myApp", ["ngRoute"]);
+var app = angular.module("myApp", ["ngRoute", "ngStorage"]);
 app.config(function ($routeProvider) {
   $routeProvider
     .when("/", { templateUrl: "pages/main.html" })
@@ -67,6 +67,21 @@ app.config(function ($routeProvider) {
     .when("/bins", {
       templateUrl: "pages/catalogue.html",
       controller: "binController",
+    })
+    .when("/checkout", {
+      templateUrl: "pages/checkout.html",
+      controller: "checkoutController",
+    })
+    .when("/deliveryPayment", {
+      templateUrl: "pages/deliveryPayment.html",
+      controller: "deliveryPaymentController",
+    })
+    .when("/review", {
+      templateUrl: "pages/review.html",
+      controller: "reviewController",
+    })
+    .when("/payment", {
+      templateUrl: "pages/payment.html",
     })
 
     .otherwise({ redirectTo: "/" });

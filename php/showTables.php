@@ -7,7 +7,9 @@ $showTruck = "SELECT * FROM Truck";
 $showManufacturer = "SELECT * FROM ManuFacturer";
 $showStore = "SELECT * FROM Store";
 $showItem = "SELECT * FROM Item";
+$showCard = "SELECT * FROM card";
 
-$showTables = array ($showUser,$showTruck,$showManufacturer,$showStore,$showItem,$showAddress);
+
+$showTables = array ($showUser,$showTruck,$showManufacturer,$showStore,$showItem,$showAddress, $showCard);
 
 ?>
