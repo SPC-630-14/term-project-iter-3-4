@@ -177,3 +177,39 @@ app.controller('checkoutController', function ($scope, $http) {
     })
 });
 
+app.controller('deliveryPaymentController', function ($scope, $http, $localStorage) {
+
+  $http.post("php/loadSelect.php")
+    .then(function successCallback(response) {
+      let res = JSON.stringify(response.data.items[0]);
+      let ress = JSON.parse(res);
+      $scope.address = ress.addresses;
+      $scope.carrier = ress.carriers;
+      $scope.paymentMethods = ress.paymentMethods;
+      console.log($scope.paymentMethods);
+    });
+  // $http.post("php/displayItems.php")
+  //   .then(function successCallback(response) {
+  //     let res = JSON.stringify(response.data.items[0]);
+  //     let ress = JSON.parse(res);
+  //     $scope.items = ress;
+  //     console.log($scope.items);
+  //   });
+
+  $scope.formData;
+
+  $scope.submitFormData = function () {
+
+    $http.post("php/updateOrderVariables.php", $scope.formData)
+      .then(function successCallback(response) {
+        $localStorage.reviewData = response.data;
+        console.log($localStorage.reviewData);
+        window.location.href = "#!review"
+      })
+  }
+});
+
+
+app.controller('reviewController', function ($scope, $localStorage) {
+  $scope.reviewVariables = $localStorage.reviewData;
+});

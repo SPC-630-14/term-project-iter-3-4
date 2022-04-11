@@ -1,26 +1,51 @@
 <head>
   <title>Checkout!</title>
-  <link rel="stylesheet" type="text/css" href="css/serviceDelivery/serviceDeliverCart.css" />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="css/serviceDelivery/serviceDeliverCart.css"
+  />
 </head>
 
 <body>
   <div class="reviewCart-Box">
-    <h1 style="margin-bottom:30px;">Checkout</h1>
+    <h1 style="margin-bottom: 30px">Checkout</h1>
     <div class="reviewItems-Container" ng-repeat="bang in items.items">
-      <img style="border-radius: 5px;" class="review-product-images" src="{{bang.image}}">
-      <br>
+      <img
+        style="border-radius: 5px"
+        class="review-product-images"
+        src="{{bang.image}}"
+      />
+      <br />
       <div class="reviewItems-Description">
-        <span style="font-weight:bold">{{bang.itemName}}</span><br>
-        <p class="quantity" style="font-size:12px; color:grey;"> Qty: <span style="color:black">{{bang.quantity}}</span>
+        <span style="font-weight: bold">{{bang.itemName}}</span><br />
+        <p class="quantity" style="font-size: 12px; color: grey">
+          Qty: <span style="color: black">{{bang.quantity}}</span>
         </p>
-        <span style="font-size:12px; color:grey;">${{bang.cost}}</span>
+        <span style="font-size: 12px; color: grey">${{bang.cost}}</span>
         <span class="sub-total">${{bang.cost * bang.quantity}}</span>
       </div>
     </div>
-    <hr style=" margin: 15px 0px; width:800px; border: 0; border-top: 1px solid #ccc;">
-    <span style="font-weight:bold; font-size: 1.5rem;" class="reviewItems-TotalPrice" name="totalCost">Total Price:
-      <span style="margin-left: 595px; font-weight:bold; font-size: 20px;"> ${{totalCost}} </span>
-    </span> <br>
-    <button class="reviewItems-Checkout-Btn" type="submit"><a href="#!deliveryPayment">Checkout</a></button>
+    <hr
+      style="
+        margin: 15px 0px;
+        width: 800px;
+        border: 0;
+        border-top: 1px solid #ccc;
+      "
+    />
+    <span
+      style="font-weight: bold; font-size: 1.5rem"
+      class="reviewItems-TotalPrice"
+      name="totalCost"
+      >Total Price:
+      <span style="margin-left: 595px; font-weight: bold; font-size: 20px">
+        ${{totalCost}}
+      </span>
+    </span>
+    <br />
+    <button class="reviewItems-Checkout-Btn" type="submit">
+      <a href="#!deliveryPayment">Checkout</a>
+    </button>
   </div>
 </body>

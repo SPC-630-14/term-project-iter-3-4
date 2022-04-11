@@ -19,6 +19,8 @@ $trip = "DROP TABLE Trip";
 
 $order = "DROP TABLE Ordered";
 
-$dropTables = array ($order,$trip,$cart,$shopping,$item,$store,$manufacturer,$truck,$user, $coord );
+$card = "DROP TABLE card";
+
+$dropTables = array ($order,$trip,$cart,$shopping,$item,$store,$manufacturer,$truck,$card,$user, $coord );
 
 ?>
