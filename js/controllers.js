@@ -220,4 +220,5 @@ app.controller('deliveryPaymentController', function ($scope, $http, $localStora
 
 app.controller('reviewController', function ($scope, $localStorage) {
   $scope.reviewVariables = $localStorage.reviewData;
+  console.log($scope.reviewVariables);
 });

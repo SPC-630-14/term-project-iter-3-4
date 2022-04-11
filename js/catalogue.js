@@ -132,6 +132,6 @@ addEvent(document, "readystatechange", function () {
         item.setAttribute("draggable", "true");
         addEvent(item, "dragstart", onDrag);
       }
-    }, 1000);
+    }, 50);
   });
 });

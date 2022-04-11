@@ -4,5 +4,25 @@
 </head>
 
 <body>
-  {{reviewVariables}}
+  <h1 style="margin:15px 50px"> Delivery Summary </h1>
+  <hr class="Delivery-Summary-HR">
+  <div class="Delivery-and-FinalCart">
+    <h1 class="D-Location">Delivery Location:</h1>
+    <p>
+    <p style="margin-bottom:15px; font-size:14px;">
+      <b style="font-size:16px; color:#363636;"> Store Address: {{reviewVariables.storeAddress}}</b>
+    </p>
+    <p style="margin-bottom:30px; font-size:14px;">
+      <b style="font-size:16px; color:#363636;"> Destination: {{reviewVariables.userAddress}}</b>
+    </p>
+    </p>
+    <h1 class="D-Cost">Delivery Cost:</h1>
+    <p style="margin-bottom:30px; font-size:14px;"> <b style="font-size:16px; color:#363636;"> Total Cost: </b> $50.00</p>
+   
+
+  </div>
+
+
+  <div id="map"></div>
+
 </body>

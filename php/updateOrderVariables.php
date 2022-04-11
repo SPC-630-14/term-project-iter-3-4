@@ -72,6 +72,8 @@ echo json_encode(   [ "storeLAT" => $storeLAT,
                     "userLAT" => $userLAT,
                     "userLONG" => $userLONG,
                     "distance" => $distance,
-                    "payment" => $_SESSION['payment']
+                    "payment" => $_SESSION['payment'],
+                    "storeAddress" => $address,
+                    "userAddress" => $_SESSION['userAddress']
                     ] );
 ?>
