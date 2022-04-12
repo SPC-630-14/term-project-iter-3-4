@@ -1,0 +1,17 @@
+/* Still needs to be linked */
+.Thank-you-container{
+    margin-top:15%;
+}
+.Thank-you{
+    margin-top: 25px;
+    text-align:center;
+    font-size:50px;
+}
+.T-Proceed, .T-Back{
+position: relative;
+left: 750px;
+padding: 10px;
+margin-top: 40px;
+width: 200px;
+
+}

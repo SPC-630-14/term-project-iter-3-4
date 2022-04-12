@@ -1,73 +1,6 @@
 <head>
   <title>Select!</title>
-  <style>
-    .reviewItems-Container {
-      float: left;
-    }
-    .reviewDelivery-Box {
-      width: 360px;
-      height: 200px;
-      z-index: 15;
-      top: 32%;
-      left: 50%;
-      margin: 50px 0 0 250px;
-      float: left;
-    }
-    .store-Branch,
-    .store-Carrier,
-    .store-Date,
-    .store-Time {
-      font-weight: bold;
-      font-size: 2.2rem;
-    }
-    .store-Branch-Select,
-    .store-Carrier-Select,
-    .store-Date-Input,
-    .store-Time-Input {
-      padding: 10px;
-      margin: 20px 0px;
-      margin-bottom: 50px;
-      position: relative;
-      right: 100px;
-      width: 550px;
-      background-color: #f5f5f5;
-      border: 1px solid lightgrey;
-      border-radius: 5px;
-    }
-
-    .store-Branch-Select:hover,
-    .store-Carrier-Select:hover,
-    .store-Date-Input:hover,
-    .store-Time-Input:hover {
-      background-color: #dbdbdb;
-    }
-
-    .store-Carrier {
-      margin-left: 50px;
-    }
-    .store-Date {
-      margin-left: 35px;
-    }
-    .store-Time {
-      margin-left: 35px;
-    }
-
-    .store-Date-Input,
-    .store-Time-Input {
-      width: 525px;
-    }
-
-    .Proceed {
-      padding: 10px;
-      margin-left: 100px;
-      margin-bottom: 200px;
-      position: relative;
-      right: 100px;
-      width: 350px;
-      border: 1px solid lightgrey;
-      border-radius: 5px;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="css/serviceDelivery/serviceDeliverSelect.css" />
 </head>
 
 <body>
@@ -107,8 +40,8 @@
         <option value="standard">Standard Delivery</option>
         <option value="express">Express Delivery</option>
       </select>
-      <label class="store-Branch"> Choose Payment:</label><br />
-      <a href="#!payment">Dont have one? click me to add one!</a>
+      <label class="store-Branch"> Choose Payment:</label><br/>
+      <a style="margin-left:50px;" href="#!payment">Dont have one? click me to add one!</a>
       <select
         id="payment"
         name="store"

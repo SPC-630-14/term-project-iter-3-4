@@ -425,7 +425,7 @@ function storeSelector() {
         $result = $conn->query($retrieve);
 
         if ($result->num_rows > 0) {
-            echo "<select name=\"store\">";
+            echo "<select class=\"store-Branch-Select\"  name=\"store\">";
             while ($row = $result->fetch_assoc()) {
                 $address = $row['address'];
                 echo "<option value=\"$address\">$address</option>";
