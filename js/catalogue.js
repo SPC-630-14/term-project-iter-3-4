@@ -37,7 +37,7 @@ addEvent(document, "readystatechange", function () {
         }
 
         document.querySelectorAll("#cart span.total")[0].innerHTML =
-          "Total: $" + total;
+          "Total: $" + total.toFixed(2);
       }
 
       // This function is only called when adding 1 item, otherwise updateCartItem(item) is called
@@ -68,6 +68,24 @@ addEvent(document, "readystatechange", function () {
         fragment.setAttribute("class", "sub-total"); //set the sub-total class to span
         clone.appendChild(fragment); //append <span> to <li>, this span will go after the next span
         cart.appendChild(clone); //append the whole <li> tag includign all the <spans> into cart ul
+
+        $.ajax({
+          method: "POST",
+          url: "php/loadCart.php",
+          data: {
+            catalogueID: id,
+            type: "add",
+          },
+          dataType: "json",
+          success: function (response) {
+            console.log(response);
+          },
+          error: function (response) {
+            console.log(response);
+          },
+        });
+
+        $(".properties").remove();
       }
 
       function updateCartItem(item, original) {
@@ -80,6 +98,24 @@ addEvent(document, "readystatechange", function () {
 
         var span = item.querySelectorAll("span.quantity"); //returns NodeList[] of span
         span[0].innerHTML = " x " + quantity;
+
+        let send = item.getAttribute("data-id");
+
+        $.ajax({
+          method: "POST",
+          url: "php/loadCart.php",
+          data: {
+            catalogueID: send,
+            type: "update",
+          },
+          dataType: "json",
+          success: function (response) {
+            console.log(response);
+          },
+          error: function (response) {
+            console.log(response);
+          },
+        });
       }
 
       function onDrop(event) {

@@ -49,9 +49,24 @@
             <a href="#">Shopping Cart</a>
             <p>Drag items into box below</p>
 
-            <section id="cart" class="shopping-cart">
+            <section id="cart" class="shopping-cart" ng-controller="shoppingController">
               <form method="post">
-                <ul></ul>
+                <ul>
+                  <!-- <li ng-repeat="bang in items.items" class="itemProduct" id="{{bang.catalogueID}}"
+                  data-price="{{bang.cost}}">
+                  <img class="all-product-images" src="{{bang.image}}">
+                  <h1>{{bang.itemName}}</h1>
+                  <span><b>Price:</b> {{bang.cost}}</span>
+                  <input type="hidden" name="{{bang.type}}{{bang.index}}">
+                </li> -->
+                <li draggable="true" ng-repeat="bang in items.items" class="items" data-price="9.99" data-id="{{bang.catalogueID}}" data-quantity="{{bang.quantity}}">
+                  <img class="all-product-images" src="{{bang.image}}">
+                  <h1 class="ng-binding">{{bang.itemName}}</h1>
+                  <span class="ng-binding"><b>Price:</b> {{bang.cost}}</span>
+                  <input type="hidden" name="{{bang.catalogueID}}" autocomplete="off" data-id="{{bang.catalogueID}}" value="1">
+                  <span class="quantity"> x {{bang.quantity}}</span><span class="sub-total"> = ${{bang.cost * bang.quantity}}</span>
+              </li>
+                </ul> 
                 <span class="total">Total: 0.00</span>
                 <button><a href="#!checkout">nice</a></button>
               </form>

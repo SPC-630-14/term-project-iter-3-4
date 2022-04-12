@@ -30,11 +30,13 @@ if ($result->num_rows > 0) {
 
         if ($result2->num_rows>0) {
             while ($row2 = $result2->fetch_assoc()) {
+                $catalogueID = $row2['catalogueID'];
                 $image = $row2['image'];
                 $itemName = $row2['itemName'];
                 $cost = $row2['cost'];
 
                 $hold = Array(
+                    'catalogueID' => $catalogueID,
                     'image' => $image,
                     'itemName' => $itemName,
                     'cost' => $cost,
