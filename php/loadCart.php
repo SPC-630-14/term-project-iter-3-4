@@ -3,7 +3,25 @@ include ("sqlFunctions.php");
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
-if ( !empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST') {
+
+$gate = True;
+
+if (isset($_SESSION['startTime'])) {
+    $endTime = microtime(true);
+    $_SESSION['endTime'] = $endTime;
+    $duration = $endTime - $_SESSION['startTime'];
+    $hours = (int)($duration/60/60);
+    $minutes = (int)($duration/60)-$hours*60;
+    $seconds = (int)$duration-$hours*60*60-$minutes*60;
+    if ($seconds <= 1) {
+        http_response_code( 406 ); 
+        echo json_encode( [ 'msg' => "blocked" ] );
+        $gate = False;
+        exit();
+    }
+}
+
+if ( !empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST' && $gate == True) {
     $conn = connectDB();
 
     $errors = '';
@@ -17,6 +35,8 @@ if ( !empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST') {
 
         try {
             $conn->query($insertCart);
+            $startTime = microtime(true);
+            $_SESSION['startTime'] = $startTime;
             http_response_code( 200 ); 
             echo json_encode( [ 'msg' => "lmao" ] );
         }
@@ -33,8 +53,10 @@ if ( !empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST') {
 
         try {
             $conn->query($updateCart);
+            $startTime = microtime(true);
+            $_SESSION['startTime'] = $startTime;
             http_response_code( 200 ); 
-            echo json_encode( [ 'msg' => "tank zilean" ] );
+            echo json_encode( [ 'msg' => $_SESSION['startTime'] ] );
         }
         catch (Exception $e) {
             http_response_code(406);

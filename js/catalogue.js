@@ -79,6 +79,7 @@ addEvent(document, "readystatechange", function () {
           dataType: "json",
           success: function (response) {
             console.log(response);
+            updateCart();
           },
           error: function (response) {
             console.log(response);
@@ -89,17 +90,20 @@ addEvent(document, "readystatechange", function () {
       }
 
       function updateCartItem(item, original) {
-        var quantity = item.getAttribute("data-quantity"); //gets the data-quantity value from the item <li>
-        quantity = parseInt(quantity) + 1; // adds 1 to the quantity
-        item.setAttribute("data-quantity", quantity); //sets the data-quantity to the new quantity
+        // var quantity = item.getAttribute("data-quantity"); //gets the data-quantity value from the item <li>
+        // quantity = parseInt(quantity) + 1; // adds 1 to the quantity
+        // item.setAttribute("data-quantity", quantity); //sets the data-quantity to the new quantity
 
-        var original_quantity = original.getAttribute("value");
-        original.setAttribute("value", quantity); /** ADDED This myself **/
+        // var original_quantity = original.getAttribute("value");
+        // original.setAttribute("value", quantity); /** ADDED This myself **/
 
-        var span = item.querySelectorAll("span.quantity"); //returns NodeList[] of span
-        span[0].innerHTML = " x " + quantity;
+        // var span = item.querySelectorAll("span.quantity"); //returns NodeList[] of span
+        // span[0].innerHTML = " x " + quantity;
+
+        // let send = item.getAttribute("data-id");
 
         let send = item.getAttribute("data-id");
+
 
         $.ajax({
           method: "POST",
@@ -111,6 +115,14 @@ addEvent(document, "readystatechange", function () {
           dataType: "json",
           success: function (response) {
             console.log(response);
+            var quantity = item.getAttribute("data-quantity");
+            quantity = parseInt(quantity) + 1;
+            var span = item.querySelectorAll("span.quantity"); //returns NodeList[] of span
+            span[0].innerHTML = " x " + quantity;
+            item.setAttribute("data-quantity", quantity); //sets the data-quantity to the new quantity
+            original.setAttribute("value", quantity); /** ADDED This myself **/
+            updateCart();
+
           },
           error: function (response) {
             console.log(response);
@@ -140,7 +152,7 @@ addEvent(document, "readystatechange", function () {
           addCartItem(item, id);
         }
 
-        updateCart();
+
 
         return false;
       }
