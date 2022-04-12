@@ -1,6 +1,6 @@
 <head>
   <title>Shopping!</title>
-  <link rel="stylesheet" type="text/css" href="" />
+  <link rel="stylesheet" type="text/css" href="css/serviceShopping/catalogue.css" />
 </head>
 
 <body>
@@ -13,10 +13,10 @@
         <span><b>Price:</b> {{bang.cost}}</span>
         <input type="hidden" name="{{bang.type}}{{bang.index}}">
         <div class="properties">
-          <span class="Weight"><b>{{bang.weight}}</b></span>
-          <span class="Length"><b>{{bang.length}}</b></span>
-          <span class="Height"><b>{{bang.height}}</b></span>
-          <span class="Colour"><b>{{bang.colour}}</b></span>
+          <span style="font-size:16px; font-weight: lighter; margin-bottom: 5px;" class="Weight"><b>Weight:</b> {{bang.weight}}</span>
+          <span style="font-size:16px; font-weight: lighter; margin-bottom: 5px;" class="Length"><b>Length:</b> {{bang.length}}</span>
+          <span style="font-size:16px; font-weight: lighter; margin-bottom: 5px;" class="Height"><b>Height:</b> {{bang.height}}</span>
+          <span style="font-size:16px; font-weight: lighter; margin-bottom: 5px;" class="Colour"><b>Colour:</b> {{bang.colour}}</span>
         </div>
 
       </li>

@@ -1,0 +1,29 @@
+.all-product-images{
+    width:350px;
+    height:350px;
+}
+
+#CHA1, #CHA2, #CHA3, #CHA4, #CHA5,
+#TAB1, #TAB2, #TAB3, #TAB4, #TAB5,
+#SOF1, #SOF2, #SOF3, #SOF4, #SOF5,
+#DRA1, #DRA2, #DRA3, #DRA4, #DRA5,
+#LAM1, #LAM2, #LAM3, #LAM4, #LAM5,
+#CHG1, #CHG2, #CHG3, #CHG4, #CHG5,
+#BED1, #BED2, #BED3, #BED4, #BED5,
+#MAT1, #MAT2, #MAT3, #MAT4, #MAT5,
+#NST1, #NST2, #NST3, #NST4, #NST5,
+#MIR1, #MIR2, #MIR3, #MIR4, #MIR5,
+#SIN1, #SIN2, #SIN3, #SIN4, #SIN5,
+#BIN1, #BIN2, #BIN3, #BIN4, #BIN5{
+    padding:50px;
+    margin-left: 100px;
+
+}
+.properties {
+    position:relative;
+    left: 450px;
+    bottom: 275px;
+    margin-bottom: -100px;
+    display:flex;
+    flex-direction: column;
+}
