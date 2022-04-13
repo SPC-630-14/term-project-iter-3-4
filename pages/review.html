@@ -2,25 +2,58 @@
   <title>Shopping!</title>
   <link rel="stylesheet" type="text/css" href="css/serviceDelivery/serviceDeliverReview.css" />
 </head>
+<style>
+  p {
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+
+  b {
+    font-size: 16px;
+    color: #363636;
+  }
+</style>
 
 <body>
   <h1 style="margin:15px 50px"> Order Summary </h1>
   <hr class="Delivery-Summary-HR">
   <div class="Delivery-and-FinalCart">
     <h1 class="D-Location">Delivery Location:</h1>
-    <p>
-    <p style="margin-bottom:15px; font-size:14px;">
-      <b style="font-size:16px; color:#363636;"> Store Address: {{orderVars.storeAddress}}</b>
+    <div>
+      <p>
+        <b> Store Address: </b> {{orderVars.storeAddress}}
+      </p>
+      <p>
+        <b> Destination: </b> {{orderVars.userAddress}}
+      </p>
+    </div>
+    <h1 class="D-Cost">Delivery:</h1>
+    <p> <b> Distance: </b>
+      {{orderVars.distance}}
     </p>
-    <p style="margin-bottom:30px; font-size:14px;">
-      <b style="font-size:16px; color:#363636;"> Destination: {{orderVars.userAddress}}</b>
+    <p> <b> Total Cost: </b>
+      ${{deliveryCost}}
     </p>
-    </p>
-    <h1 class="D-Cost">Delivery Cost:</h1>
-    <p style="margin-bottom:30px; font-size:14px;"> <b style="font-size:16px; color:#363636;"> Total Cost: </b> $50.00
-    </p>
+    <div ng-switch="orderVars.assembly">
+      <div ng-switch-default></div>
+      <div ng-switch-when="true">
+        <h1 class="D-Cost">Assembly:</h1>
+        <p> <b> Type: </b>
+          {{orderVars.assemblyType}}
+        </p>
+        <p> <b> Description: </b>
+          "{{orderVars.description}}"
+
+        </p>
+        <p> <b> Assembly Cost: </b>
+          ${{assemblyCost}}
+        </p>
+      </div>
+
+    </div>
 
     <div class="reviewFinalCart-Box">
+      <h1 class="D-Location">Items:</h1>
       <div class="reviewFinalItems-Container" ng-repeat="item in items">
         <img style="border-radius: 5px;" class="review-Final-product-images" src="{{item.image}}"><br>
         <div class="reviewFinalItems-Description">
@@ -31,9 +64,9 @@
       </div>
     </div>
 
-    <p style=" clear:both ;font-size:30px;" name="totalCost"> <b style="color:#363636;"> Total Cost: </b>
+    <p style=" clear:both ;font-size:30px; color:red;" name="totalCost"> <b style="color:#363636;"> Total Cost: </b>
       ${{totalDeliveryCost}}</p>
-    <button class="Delivery-Submit" type="submit">Place Order</button>
+    <button class="Delivery-Submit" type="submit" ng-click="createEntries()">Place Order</button>
   </div>
 
 

@@ -48,12 +48,24 @@ $dt = new DateTime($date.$time);
 $dt->setTimezone(new DateTimeZone('America/Toronto'));
 
 $dtSend = $dt->format('Y-m-d H:i:s T');
-$_SESSION['orderVar']['dateOrdered'] = $dtSend;
+$_SESSION['orderVar']['deliveryDate'] = $dtSend;
 
 // Save Assembly Info
-$_SESSION['orderVar']['assembly'] = $json['assembly'];
-$_SESSION['orderVar']['assemblyType'] = $json['assemblyType'];
-$_SESSION['orderVar']['description'] = $json['description'];
+
+if ($json['assembly'] == True) {
+    $_SESSION['orderVar']['assembly'] = $json['assembly'];
+    $_SESSION['orderVar']['assemblyType'] = $json['assemblyType'];
+    $_SESSION['orderVar']['description'] = $json['description'];
+    $_SESSION['orderVar']['assemblyCost'] = floatval($_SESSION['orderVar']['totalQuantity']) * 7.82;
+}
+else {
+    $_SESSION['orderVar']['assembly'] = $json['assembly'];
+    $_SESSION['orderVar']['assemblyType'] = False;
+    $_SESSION['orderVar']['description'] = False;
+    $_SESSION['orderVar']['assemblyCost'] = 0;
+}
+
+
 
 
 // Prepare Longitude & Latitude for Send
@@ -69,6 +81,7 @@ $_SESSION['orderVar']['userAddress'] = $_SESSION['userAddress'];
 
 // Prepare the Distance & Delivery Cost
 $_SESSION['orderVar']['distance'] = getDistance($address, $_SESSION['userAddress'], "K");
+$_SESSION['orderVar']['tripCost'] = (floatval($_SESSION['orderVar']['distance']) * 0.5) + (floatval($_SESSION['orderVar']['totalWeight']) * 0.7);
 
 
 

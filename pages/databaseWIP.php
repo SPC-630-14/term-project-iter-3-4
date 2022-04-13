@@ -147,6 +147,7 @@
                   generalQuery($insertItemBins);
 
                   generalQuery($insertCards);
+                  generalQuery($insertAssembly);
                   break;
                 case "show":
                   include ('../php/showTables.php');
@@ -184,6 +185,7 @@
                   generalQuery($insertItemSinks);
                   generalQuery($insertItemBins);
                   generalQuery($insertCards);
+                  generalQuery($insertAssembly);
                   break;
               }
             }

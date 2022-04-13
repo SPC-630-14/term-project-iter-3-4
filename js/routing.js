@@ -88,6 +88,9 @@ app.config(function ($routeProvider) {
     .when("/processing", {
       templateUrl: "pages/signUpProcess.html",
     })
+    .when("/invoice", {
+      templateUrl: "pages/invoice.html",
+    })
 
     .otherwise({ redirectTo: "/" });
 });

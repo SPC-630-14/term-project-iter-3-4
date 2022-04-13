@@ -457,21 +457,23 @@ function carrierSelector() {
     }
 }
 
-function createTrip($carrierID, $sourceAddress,$destinationAddress) {
+function createTrip($carrierID, $sourceAddress,$destinationAddress,$distance,$tripCost) {
     $conn = connectDB();
-    
+    echo "here";
+    $carrierID = intval($carrierID);
     if ($conn) {
-        $find = "SELECT truckID FROM truck WHERE truckCarrier ='$carrierID' AND availabilityCode = 'YES'";
+        $find = "SELECT truckID FROM truck WHERE truckCarrier = $carrierID AND availabilityCode = 'YES'";
         $result = $conn->query($find);
-
+        
         if ($result->num_rows > 0) {
+            echo $result;
             while ($row = $result->fetch_assoc()) {
                 $truckID = $row['truckID'];
+                echo "<h1>".$truck."</h2>";
                 break;
             }
-
-            $insert = "INSERT INTO Trip (truckID, sourceAddress, destinationAddress) 
-                VALUES ('$truckID', '$sourceAddress', '$destinationAddress')";
+            $insert = "INSERT INTO Trip (truckID, sourceAddress, destinationAddress,distance,cost) 
+                VALUES ($truckID, '$sourceAddress', '$destinationAddress','$distance',$tripCost)";
             try {
                 $conn->query($insert);
                 $findTrip = "SELECT tripID FROM Trip ORDER BY tripID DESC LIMIT 1";
@@ -480,11 +482,13 @@ function createTrip($carrierID, $sourceAddress,$destinationAddress) {
                 if ($result2->num_rows > 0) {
                     while ($row = $result2->fetch_assoc()) {
                         $_SESSION['tripID'] = $row['tripID'];
-                        break;
+
                     }
                 }
 
             }
+
+
             catch (Exception $e) {
                 echo "<br>";
                 echo "<br>";
@@ -494,6 +498,9 @@ function createTrip($carrierID, $sourceAddress,$destinationAddress) {
 
         }
 
+    }
+    else {
+        echo "123";
     }
 }
 

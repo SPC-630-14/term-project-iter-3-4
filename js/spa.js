@@ -132,22 +132,22 @@ function initMap(userLat, userLong, storeLat, storeLong) {
         infoWindow2.open(map, marker2);
     });
 
-    // var start = new google.maps.LatLng(storeLat, storeLong);
-    // var end = new google.maps.LatLng(userLat, userLong);
+    var start = new google.maps.LatLng(storeLat, storeLong);
+    var end = new google.maps.LatLng(userLat, userLong);
 
-    // var display = new google.maps.DirectionsRenderer();
-    // var services = new google.maps.DirectionsService();
-    // display.setMap(map);
-    // var request = {
-    //     origin: start,
-    //     destination: end,
-    //     travelMode: 'DRIVING'
-    // };
-    // services.route(request, function (result, status) {
-    //     if (status == 'OK') {
-    //         display.setDirections(result);
-    //     }
-    // });
+    var display = new google.maps.DirectionsRenderer();
+    var services = new google.maps.DirectionsService();
+    display.setMap(map);
+    var request = {
+        origin: start,
+        destination: end,
+        travelMode: 'DRIVING'
+    };
+    services.route(request, function (result, status) {
+        if (status == 'OK') {
+            display.setDirections(result);
+        }
+    });
 }
 
 window.onload = loginReload();

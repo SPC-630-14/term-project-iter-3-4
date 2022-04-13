@@ -1,49 +1,51 @@
 /* Still needs to be linked */
-.Delivery-and-FinalCart{
-    float:left;
-    position: relative;
-    left: 135px;
-  }
-  .Delivery-Summary-HR{
-    margin-bottom: 25px; 
-    border: 0; 
-    border-top: 1px solid #ccc;
-  }
-  .D-Location, .D-Distance, .D-Cost{
-    margin-bottom: 20px;
-    font-weight: lighter;
-    color: #363636;
-  }
-  .reviewFinalCart-Box{
-    width:500px;
-  }
+.Delivery-and-FinalCart {
+  float: left;
+  position: relative;
+  left: 135px;
+}
+.Delivery-Summary-HR {
+  margin-bottom: 25px;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+.D-Location,
+.D-Distance,
+.D-Cost {
+  margin-bottom: 20px;
+  font-weight: lighter;
+  color: #363636;
+}
+.reviewFinalCart-Box {
+  width: 500px;
+}
 
-  .review-Final-product-images{
-    margin-top:10px;
-    width:105px;
-    height:105px;
-  }
-  .reviewFinalItems-Container{
-    float:left;
-    margin-left: 10px;
-    margin-bottom: 50px;
-    display:block;
-    width: 100px;
-  }
+.review-Final-product-images {
+  margin-top: 10px;
+  width: 105px;
+  height: 105px;
+}
+.reviewFinalItems-Container {
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 50px;
+  display: block;
+  width: 100px;
+}
 
-  .Delivery-Submit{
-    padding:15px; 
-    margin-top:20px;
-    margin-bottom: 50px;
-    width:500px;
-    border: 1px solid lightgrey; 
-    border-radius: 5px;
-  }
+.Delivery-Submit {
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  width: 500px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
 
-  #map {
-    position:relative;
-    left:200px;
-    bottom:15px;
-    height: 100vh;
-    width:1100px;  
-  }
+#map {
+  position: relative;
+  left: 200px;
+  bottom: 15px;
+  height: 100vh;
+  width: 1100px;
+}

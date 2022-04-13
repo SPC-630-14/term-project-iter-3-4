@@ -23,6 +23,8 @@ $card = "DROP TABLE card";
 
 $payment = "DROP TABLE Payment";
 
-$dropTables = array ($payment,$card,$order,$trip,$cart,$shopping,$item,$store,$manufacturer,$truck,$user, $coord );
+$assembly = "DROP TABLE Assembly";
+
+$dropTables = array ($payment,$card,$order,$assembly,$trip,$cart,$shopping,$item,$store,$manufacturer,$truck,$user, $coord );
 
 ?>

@@ -304,6 +304,7 @@ app.controller("checkoutController", function ($scope, $http, $localStorage) {
 
   $scope.totalCost = 0;
   $scope.totalQuantity = 0;
+  $scope.totalWeight = 0;
 
   $http.post("php/displayItems.php").then(function successCallback(response) {
     let res = JSON.stringify(response.data.items[0]);
@@ -316,11 +317,14 @@ app.controller("checkoutController", function ($scope, $http, $localStorage) {
         parseFloat($scope.totalCost) +
         parseFloat($scope.items.items[i].cost) * $scope.items.items[i].quantity;
       $scope.totalQuantity = $scope.totalQuantity + parseInt($scope.items.items[i].quantity);
+      $scope.totalWeight = $scope.totalWeight + parseFloat($scope.items.items[i].weight);
+
     }
     $scope.totalCost = $scope.totalCost.toFixed(2);
     $scope.send = [{
       totalCost: $scope.totalCost,
-      totalQuantity: $scope.totalQuantity
+      totalQuantity: $scope.totalQuantity,
+      totalWeight: $scope.totalWeight
     }];
     console.log($scope.send);
     $http.post("php/updateCheckoutVariables.php", $scope.send).then(function successCallback(response) {
@@ -395,12 +399,22 @@ app.controller("reviewController", function ($scope, $http) {
     $scope.items = response.data.items[0].items;
     console.log($scope.orderVars);
     console.log($scope.items);
-    var Neat = parseFloat($scope.orderVars.totalCost) + 50.00;
+    var Neat = parseFloat($scope.orderVars.totalCost) + $scope.orderVars.tripCost + $scope.orderVars.assemblyCost;
+    $scope.deliveryCost = $scope.orderVars.tripCost.toFixed(2);
     $scope.totalDeliveryCost = Neat.toFixed(2);
-    console.log($scope.totalDeliveryCost)
+    $scope.assemblyCost = $scope.orderVars.assemblyCost.toFixed(2);
+    //console.log($scope.totalDeliveryCost)
 
     initMap(parseFloat($scope.orderVars.userLAT), parseFloat($scope.orderVars.userLONG), parseFloat($scope.orderVars.storeLAT), parseFloat($scope.orderVars.storeLONG));
   })
+
+  $scope.createEntries = function () {
+    $http.post("php/createOrderEntries.php").then(function successCallback(response) {
+      console.log(response);
+      window.location.href = "#!invoice";
+    });
+  }
+
 });
 
 app.controller("shoppingController", function ($scope, $http, $location) {
@@ -409,7 +423,7 @@ app.controller("shoppingController", function ($scope, $http, $location) {
     $scope.items = [];
 
     $http.post("php/removeItems.php").then(function successCallback(response) {
-      console.log(response);
+      //console.log(response);
     });
   }
 
@@ -428,7 +442,7 @@ app.controller("shoppingController", function ($scope, $http, $location) {
         let res = JSON.stringify(response.data.items[0]);
         let ress = JSON.parse(res);
         $scope.items = ress;
-        console.log($scope.items);
+        //console.log($scope.items);
         $(".items").remove();
       }
     });

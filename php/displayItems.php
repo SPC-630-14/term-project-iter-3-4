@@ -46,6 +46,7 @@ if ($result->num_rows > 0) {
                 $image = $row2['image'];
                 $itemName = $row2['itemName'];
                 $cost = $row2['cost'];
+                $weight = $row2['weight'];
 
                 $hold = Array(
                     'catalogueID' => $catalogueID,
@@ -53,6 +54,7 @@ if ($result->num_rows > 0) {
                     'itemName' => $itemName,
                     'cost' => $cost,
                     'quantity' => $duo[1],
+                    'weight' => $weight
                  );
             }
             array_push($data,$hold);

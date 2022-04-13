@@ -8,7 +8,7 @@ $user = "CREATE TABLE User (
     address VARCHAR(50) NOT NULL,
     loginID VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL,
-    balance DEC(10,2) DEFAULT 0.00,
+    salt VARCHAR(100), 
     type VARCHAR(25) DEFAULT 'User'
     )";
 
@@ -71,10 +71,16 @@ $trip = "CREATE TABLE Trip (
     truckID INT(6) UNSIGNED,
     sourceAddress VARCHAR(100),
     destinationAddress VARCHAR(100),
-    distance DEC(10,2),
+    distance VARCHAR(100),
     cost DEC(10,2),
     CONSTRAINT FK_TT FOREIGN KEY (truckID) REFERENCES Truck(truckID),
     CONSTRAINT FK_ST FOREIGN KEY (sourceAddress) REFERENCES Store(address)
+    )";
+
+$assembly = "CREATE TABLE Assembly (
+    assemblyID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    type VARCHAR(100),
+    cost DEC(10,2)
     )";
 
 $order = "CREATE TABLE Ordered (
@@ -83,13 +89,15 @@ $order = "CREATE TABLE Ordered (
     transactionID VARCHAR(100) UNIQUE,
     tripID INT(6) UNSIGNED,
     receiptID INT(6) UNSIGNED,
+    assemblyID INT(6) UNSIGNED,
     totalCost DEC(10,2),
     dateIssued VARCHAR(30),
     dateEstimate VARCHAR(30),
     dateReceived VARCHAR(30),
     CONSTRAINT FK_UP FOREIGN KEY (userID) REFERENCES User(userID),
     CONSTRAINT FK_TO FOREIGN KEY (tripID) REFERENCES Trip(tripID),
-    CONSTRAINT FK_SO FOREIGN KEY (receiptID) REFERENCES Shopping(receiptID)
+    CONSTRAINT FK_SO FOREIGN KEY (receiptID) REFERENCES Shopping(receiptID),
+    CONSTRAINT FK_AO FOREIGN KEY (assemblyID) REFERENCES Assembly(assemblyID)
     )";
 
 $payment = "CREATE TABLE Payment (
@@ -97,8 +105,8 @@ $payment = "CREATE TABLE Payment (
     transactionID VARCHAR(100),
     date VARCHAR(100),
     type VARCHAR(100),
-    balance FLOAT(6,2),
-    changeInBalance FLOAT(6,2),
+    balance DEC(10,2),
+    changeInBalance DEC(10,2),
     cardID INT(6) UNSIGNED,
     CONSTRAINT FK_CP FOREIGN KEY (cardID) REFERENCES Card(cardID),
     CONSTRAINT FK_PO FOREIGN KEY (transactionID) REFERENCES Ordered(transactionID)
@@ -115,13 +123,15 @@ $card = "CREATE TABLE Card (
     cardID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     userID INT(6) UNSIGNED,
     nameOnCard VARCHAR(100),
-    creditCardNumber VARCHAR(16) UNIQUE,
+    creditCardNumber VARCHAR(100) UNIQUE,
+    last4Digits VARCHAR(100),
+    salt VARCHAR(100),
     expirationDate VARCHAR(10),
     CVC INT(3),
     CONSTRAINT FK_IOP FOREIGN KEY (userID) REFERENCES User(userID)
     )";
 
 
-$createTables = array ($user,$truck,$manufacturer,$store,$item,$shopping,$cart,$trip,$order,$coord,$card,$payment );
+$createTables = array ($user,$truck,$manufacturer,$store,$item,$shopping,$cart,$trip,$assembly,$order,$coord,$card,$payment );
 
 ?>

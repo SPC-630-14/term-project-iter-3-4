@@ -19,12 +19,12 @@ $insertAddress = array (
 
 
 $insertUser = array (
-    "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password, balance, type) 
-        VALUES ('Georgz', 'Ilagan', '111-111-111', 'georgz.ilagan@ryerson.ca', '92 Holly St, Toronto, ON M4S 3H3, Canada', 'gilagan', '123123', 0.00,'Admin')",
-    "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password, balance, type) 
-        VALUES ('Ralph', 'Liton', '222-222-222', 'rliton@ryerson.ca', '1107 Avenue Rd, Toronto, ON M5N 3B1', 'rliton', '123123', 0.00,'Admin')",
-    "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password, balance, type) 
-        VALUES ('Jacob', 'Rokhvarg', '333-333-333', 'jacob.rokhvarg@ryerson.ca', '1921 Albion Rd, Etobicoke, ON M9W 5S8, Canada', 'jrokhvarg', '123123', 0.00,'Admin')"
+    "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password, type) 
+        VALUES ('Georgz', 'Ilagan', '111-111-111', 'georgz.ilagan@ryerson.ca', '92 Holly St, Toronto, ON M4S 3H3, Canada', 'gilagan', '123123','Admin')",
+    "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password, type) 
+        VALUES ('Ralph', 'Liton', '222-222-222', 'rliton@ryerson.ca', '1107 Avenue Rd, Toronto, ON M5N 3B1', 'rliton', '123123', 'Admin')",
+    "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password, type) 
+        VALUES ('Jacob', 'Rokhvarg', '333-333-333', 'jacob.rokhvarg@ryerson.ca', '1921 Albion Rd, Etobicoke, ON M9W 5S8, Canada', 'jrokhvarg', '123123','Admin')"
 );
 
 $insertTruck = array (
@@ -222,6 +222,11 @@ $insertCards = array (
         VALUES (2, 'Ralph Liton', '6262626262626262', '06/30', 321)",
     "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC) 
         VALUES (3, 'Jacob Rokhvarg', '8989898989898989', '06/30', 321)"
+);
+
+$insertAssembly = array (
+    "INSERT INTO Assembly (assemblyID, type, cost) 
+        VALUES (1, 'False', 0.00)"
 );
 
 
