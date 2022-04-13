@@ -403,20 +403,21 @@ app.controller("reviewController", function ($scope, $http) {
   })
 });
 
-app.controller("shoppingController", function ($scope, $http) {
+app.controller("shoppingController", function ($scope, $http, $location) {
   $scope.$on("$locationChangeSuccess", function (event, newUrl, odURL) {
-    console.log("updating Cart");
-    $http.post("php/displayItems.php").then(function successCallback(response) {
-      //console.log(response);
-      if (response.data.msg == "false") {
-        $scope.items = [];
-        closeNav();
-      } else {
-        let res = JSON.stringify(response.data.items[0]);
-        let ress = JSON.parse(res);
-        $scope.items = ress;
-        //console.log($scope.items);
-      }
-    });
+    if ($location.$$path == "/logOut" || $location.$$path == "/processing") {
+      $http.post("php/displayItems.php").then(function successCallback(response) {
+        console.log(response);
+        if (response.data.msg == "false") {
+          $scope.items = [];
+          closeNav();
+        } else {
+          let res = JSON.stringify(response.data.items[0]);
+          let ress = JSON.parse(res);
+          $scope.items = ress;
+          console.log($scope.items);
+        }
+      });
+    }
   });
 });

@@ -16,7 +16,7 @@ $("form").on("submit", function (e) {
                 document.getElementById("login-Btn").innerHTML = res.user;
                 login();
                 document.getElementById("log-out").setAttribute("href", "#!logOut");
-                window.location.href = "#!";
+                window.location.href = "#!processing";
             }
         },
         error: function (response) {

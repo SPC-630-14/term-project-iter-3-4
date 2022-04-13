@@ -18,4 +18,4 @@ function logOut() {
     });
 };
 
-window.onload = logOut();
+window.onload = setTimeout(logOut(), 500);

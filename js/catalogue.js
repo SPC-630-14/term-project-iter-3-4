@@ -83,6 +83,7 @@ addEvent(document, "readystatechange", function () {
           },
           error: function (response) {
             console.log(response);
+            updateCart();
           },
         });
 
