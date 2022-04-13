@@ -404,6 +404,17 @@ app.controller("reviewController", function ($scope, $http) {
 });
 
 app.controller("shoppingController", function ($scope, $http, $location) {
+
+  $scope.removeItems = function () {
+    $scope.items = [];
+
+    $http.post("php/removeItems.php").then(function successCallback(response) {
+      console.log(response);
+    });
+  }
+
+
+
   $scope.$on("$locationChangeSuccess", function (event, newUrl, odURL) {
 
     $http.post("php/displayItems.php").then(function successCallback(response) {

@@ -406,6 +406,8 @@ function clearCart($receiptID) {
         $delete = "DELETE FROM Cart WHERE receiptID = '$receiptID'";
         try {
             $conn->query($delete);
+            http_response_code (200);
+            echo json_encode( [ 'mgs' => "success"  ] );
         }
         catch (Exception $e) {
             echo "<br>";
