@@ -23,12 +23,6 @@ if ( !empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST' && !empty($_POST['a
     if ( empty($_POST['CVC']) ) {
        $errors .= '<li>CVC is required</li>';
     }
-    if (isset($_POST['Default'])) {
-        $default = "FALSE";
-    }
-    else {
-        $default = "DEFAULT";
-    }
 
     if (empty($errors)) {
 
@@ -37,8 +31,8 @@ if ( !empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST' && !empty($_POST['a
         $user = $_SESSION['userID'];
         // I will remove default soon
 
-        $newPaymentMethod = "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC, status) 
-        VALUES ( '$user', '$nameOnCard ', '$creditCardNumber', '$expirationDate', $CVC, $default)";
+        $newPaymentMethod = "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC) 
+        VALUES ( '$user', '$nameOnCard ', '$creditCardNumber', '$expirationDate', $CVC)";
 
 
         try {

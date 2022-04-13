@@ -51,12 +51,20 @@ if ($conn) {
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $creditCard = substr($row['creditCardNumber'],12,4);
+            $creditCard = "Card with an Expirate Date of: ".$row['expirationDate'];
+            $id = $row['cardID'];
             $hold = Array(
                 'payment' => $creditCard,
+                'id'=> $id
+                
              );
              array_push($data3,$hold);
         }
+        $hold = Array(
+            'payment' => "Add New Payment Method",
+            'id' => 0,
+         );
+        array_push($data3,$hold);
     }
 }
 

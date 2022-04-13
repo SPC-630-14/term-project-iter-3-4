@@ -216,12 +216,12 @@ $insertItemBins = array (
 );
 
 $insertCards = array (
-    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC, status) 
-        VALUES (1, 'Georgz Ilagan', '4545454545454545', '06/30', 321, 'Default')",
-    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC, status) 
-        VALUES (2, 'Ralph Liton', '6262626262626262', '06/30', 321, 'Default')",
-    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC, status) 
-        VALUES (3, 'Jacob Rokhvarg', '8989898989898989', '06/30', 321, 'Default')"
+    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC) 
+        VALUES (1, 'Georgz Ilagan', '4545454545454545', '06/30', 321)",
+    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC) 
+        VALUES (2, 'Ralph Liton', '6262626262626262', '06/30', 321)",
+    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC) 
+        VALUES (3, 'Jacob Rokhvarg', '8989898989898989', '06/30', 321)"
 );
 
 

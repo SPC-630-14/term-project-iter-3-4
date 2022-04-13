@@ -6,8 +6,7 @@ app.controller("chairController", function ($scope, $http) {
       if (response.data.status == "closed") {
         window.location.href = "#!";
         alert("Please Log In!");
-      }
-      else {
+      } else {
         openNav();
       }
     });
@@ -33,8 +32,7 @@ app.controller("tableController", function ($scope, $http) {
       if (response.data.status == "closed") {
         window.location.href = "#!";
         alert("Please Log In!");
-      }
-      else {
+      } else {
         openNav();
       }
     });
@@ -59,8 +57,7 @@ app.controller("sofaController", function ($scope, $http) {
       if (response.data.status == "closed") {
         window.location.href = "#!";
         alert("Please Log In!");
-      }
-      else {
+      } else {
         openNav();
       }
     });
@@ -85,8 +82,7 @@ app.controller("drawerController", function ($scope, $http) {
       if (response.data.status == "closed") {
         window.location.href = "#!";
         alert("Please Log In!");
-      }
-      else {
+      } else {
         openNav();
       }
     });
@@ -111,8 +107,7 @@ app.controller("lampController", function ($scope, $http) {
       if (response.data.status == "closed") {
         window.location.href = "#!";
         alert("Please Log In!");
-      }
-      else {
+      } else {
         openNav();
       }
     });
@@ -137,8 +132,7 @@ app.controller("chargerController", function ($scope, $http) {
       if (response.data.status == "closed") {
         window.location.href = "#!";
         alert("Please Log In!");
-      }
-      else {
+      } else {
         openNav();
       }
     });
@@ -163,8 +157,7 @@ app.controller("bedController", function ($scope, $http) {
       if (response.data.status == "closed") {
         window.location.href = "#!";
         alert("Please Log In!");
-      }
-      else {
+      } else {
         openNav();
       }
     });
@@ -189,8 +182,7 @@ app.controller("mattressController", function ($scope, $http) {
       if (response.data.status == "closed") {
         window.location.href = "#!";
         alert("Please Log In!");
-      }
-      else {
+      } else {
         openNav();
       }
     });
@@ -215,8 +207,7 @@ app.controller("nightstandController", function ($scope, $http) {
       if (response.data.status == "closed") {
         window.location.href = "#!";
         alert("Please Log In!");
-      }
-      else {
+      } else {
         openNav();
       }
     });
@@ -241,8 +232,7 @@ app.controller("mirrorController", function ($scope, $http) {
       if (response.data.status == "closed") {
         window.location.href = "#!";
         alert("Please Log In!");
-      }
-      else {
+      } else {
         openNav();
       }
     });
@@ -267,8 +257,7 @@ app.controller("sinkController", function ($scope, $http) {
       if (response.data.status == "closed") {
         window.location.href = "#!";
         alert("Please Log In!");
-      }
-      else {
+      } else {
         openNav();
       }
     });
@@ -293,8 +282,7 @@ app.controller("binController", function ($scope, $http) {
       if (response.data.status == "closed") {
         window.location.href = "#!";
         alert("Please Log In!");
-      }
-      else {
+      } else {
         openNav();
       }
     });
@@ -311,7 +299,7 @@ app.controller("binController", function ($scope, $http) {
     });
 });
 
-app.controller("checkoutController", function ($scope, $http) {
+app.controller("checkoutController", function ($scope, $http, $localStorage) {
   closeNav();
 
   $scope.totalCost = 0;
@@ -324,10 +312,12 @@ app.controller("checkoutController", function ($scope, $http) {
 
     for (let i in $scope.items.items) {
       $scope.totalCost =
-        parseFloat($scope.totalCost) + (parseFloat($scope.items.items[i].cost) * $scope.items.items[i].quantity);
+        parseFloat($scope.totalCost) +
+        parseFloat($scope.items.items[i].cost) * $scope.items.items[i].quantity;
     }
     $scope.totalCost = $scope.totalCost.toFixed(2);
-    console.log($scope.totalCost);
+    $localStorage.totalCost = $scope.totalCost;
+    console.log($localStorage.totalCost);
   });
 });
 
@@ -340,18 +330,57 @@ app.controller(
       $scope.address = ress.addresses;
       $scope.carrier = ress.carriers;
       $scope.paymentMethods = ress.paymentMethods;
+      $scope.formData;
+
       console.log($scope.paymentMethods);
+      if ($scope.paymentMethods.length === 0) {
+        console.log($scope.paymentMethods);
+        $scope.paymentMethods = [{ payment: "No Payment Methods" }]
+        console.log($scope.paymentMethods);
+      }
+      else {
+        console.log("not Empty");
+      }
     });
-    $scope.formData;
+
+    $scope.$watch('formData.payment', function (newValue, oldValue) {
+      if ($scope.formData === undefined) {
+        null;
+      }
+      else if ($scope.formData.payment === "No Payment Methods") {
+        window.location.href = "#!payment";
+      }
+      else if ($scope.formData.payment === "Add New Payment Method") {
+        window.location.href = "#!payment";
+      }
+    });
+    $scope.$watch('formData.assembly', function (newValue, oldValue) {
+      if ($scope.formData === undefined) {
+        null;
+      }
+      else {
+        console.log($scope.formData.assembly);
+      }
+    });
+
+
+
+
+    $scope.addNew = function () {
+      $scope.selection = "";
+    }
+
 
     $scope.submitFormData = function () {
-      $http
-        .post("php/updateOrderVariables.php", $scope.formData)
-        .then(function successCallback(response) {
-          $localStorage.reviewData = response.data;
-          console.log($localStorage.reviewData);
-          window.location.href = "#!review";
-        });
+      if ($scope.paymentMethods.length > 0) {
+        $http
+          .post("php/updateOrderVariables.php", $scope.formData)
+          .then(function successCallback(response) {
+            $localStorage.reviewData = response.data;
+            console.log($localStorage.reviewData);
+            //window.location.href = "#!review";
+          });
+      };
     };
   }
 );
@@ -362,21 +391,19 @@ app.controller("reviewController", function ($scope, $localStorage) {
 });
 
 app.controller("shoppingController", function ($scope, $http) {
-  $scope.$on('$locationChangeSuccess', function (event, newUrl, oldURL) {
+  $scope.$on("$locationChangeSuccess", function (event, newUrl, odURL) {
     console.log("updating Cart");
     $http.post("php/displayItems.php").then(function successCallback(response) {
       console.log(response);
       if (response.data.msg == "false") {
         $scope.items = [];
         closeNav();
-      }
-      else {
+      } else {
         let res = JSON.stringify(response.data.items[0]);
         let ress = JSON.parse(res);
         $scope.items = ress;
         console.log($scope.items);
       }
     });
-
   });
 });

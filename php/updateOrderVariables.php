@@ -38,12 +38,8 @@ if ($conn) {
     }
 }
 
-// Save Delivery Type
+// Save Payment Info
 $_SESSION['payment'] = $json['payment'];
-
-// Save Payment Information
-$_SESSION['deliveryType'] = $json['type'];
-
 
 // Save DateTime
 $date = substr($json['date'],0,10);
@@ -53,6 +49,11 @@ $dt->setTimezone(new DateTimeZone('America/Toronto'));
 
 $dtSend = $dt->format('Y-m-d H:i:s T');
 $_SESSION['dateOrdered'] = $dtSend;
+
+// Save Assembly Info
+$_SESSION['assembly'] = $json['assembly'];
+$_SESSION['assemblyType'] = $json['assemblyType'];
+$_SESSION['description'] = $json['description'];
 
 
 // Prepare Longitude & Latitude for Send
@@ -74,6 +75,9 @@ echo json_encode(   [ "storeLAT" => $storeLAT,
                     "distance" => $distance,
                     "payment" => $_SESSION['payment'],
                     "storeAddress" => $address,
-                    "userAddress" => $_SESSION['userAddress']
+                    "userAddress" => $_SESSION['userAddress'],
+                    "assembly" => $_SESSION['assembly'],
+                    "assemblyType" => $_SESSION['assemblyType'],
+                    "description" => $_SESSION['description']
                     ] );
 ?>
