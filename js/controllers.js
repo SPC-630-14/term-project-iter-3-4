@@ -303,6 +303,7 @@ app.controller("checkoutController", function ($scope, $http, $localStorage) {
   closeNav();
 
   $scope.totalCost = 0;
+  $scope.totalQuantity = 0;
 
   $http.post("php/displayItems.php").then(function successCallback(response) {
     let res = JSON.stringify(response.data.items[0]);
@@ -314,16 +315,24 @@ app.controller("checkoutController", function ($scope, $http, $localStorage) {
       $scope.totalCost =
         parseFloat($scope.totalCost) +
         parseFloat($scope.items.items[i].cost) * $scope.items.items[i].quantity;
+      $scope.totalQuantity = $scope.totalQuantity + parseInt($scope.items.items[i].quantity);
     }
     $scope.totalCost = $scope.totalCost.toFixed(2);
-    $localStorage.totalCost = $scope.totalCost;
-    console.log($localStorage.totalCost);
+    $scope.send = [{
+      totalCost: $scope.totalCost,
+      totalQuantity: $scope.totalQuantity
+    }];
+    console.log($scope.send);
+    $http.post("php/updateCheckoutVariables.php", $scope.send).then(function successCallback(response) {
+      console.log(response);
+    });
   });
 });
 
 app.controller(
   "deliveryPaymentController",
   function ($scope, $http, $localStorage) {
+    $scope.oldVariables = $localStorage.checkout;
     $http.post("php/loadSelect.php").then(function successCallback(response) {
       let res = JSON.stringify(response.data.items[0]);
       let ress = JSON.parse(res);
@@ -335,7 +344,10 @@ app.controller(
       console.log($scope.paymentMethods);
       if ($scope.paymentMethods.length === 0) {
         console.log($scope.paymentMethods);
-        $scope.paymentMethods = [{ payment: "No Payment Methods" }]
+        $scope.paymentMethods = [{
+          payment: "No Payment Methods",
+          id: 0
+        }];
         console.log($scope.paymentMethods);
       }
       else {
@@ -347,10 +359,7 @@ app.controller(
       if ($scope.formData === undefined) {
         null;
       }
-      else if ($scope.formData.payment === "No Payment Methods") {
-        window.location.href = "#!payment";
-      }
-      else if ($scope.formData.payment === "Add New Payment Method") {
+      if ($scope.formData.payment == 0) {
         window.location.href = "#!payment";
       }
     });
@@ -365,36 +374,40 @@ app.controller(
 
 
 
-
-    $scope.addNew = function () {
-      $scope.selection = "";
-    }
-
-
     $scope.submitFormData = function () {
       if ($scope.paymentMethods.length > 0) {
         $http
-          .post("php/updateOrderVariables.php", $scope.formData)
+          .post("php/updateDeliveryVariables.php", $scope.formData)
           .then(function successCallback(response) {
             $localStorage.reviewData = response.data;
             console.log($localStorage.reviewData);
-            //window.location.href = "#!review";
+
+            window.location.href = "#!review";
           });
       };
     };
   }
 );
 
-app.controller("reviewController", function ($scope, $localStorage) {
-  $scope.reviewVariables = $localStorage.reviewData;
-  console.log($scope.reviewVariables);
+app.controller("reviewController", function ($scope, $http) {
+  $http.post("php/retrieveOrderVars.php").then(function successCallback(response) {
+    $scope.orderVars = response.data.orderVars;
+    $scope.items = response.data.items[0].items;
+    console.log($scope.orderVars);
+    console.log($scope.items);
+    var Neat = parseFloat($scope.orderVars.totalCost) + 50.00;
+    $scope.totalDeliveryCost = Neat.toFixed(2);
+    console.log($scope.totalDeliveryCost)
+
+    initMap(parseFloat($scope.orderVars.userLAT), parseFloat($scope.orderVars.userLONG), parseFloat($scope.orderVars.storeLAT), parseFloat($scope.orderVars.storeLONG));
+  })
 });
 
 app.controller("shoppingController", function ($scope, $http) {
   $scope.$on("$locationChangeSuccess", function (event, newUrl, odURL) {
     console.log("updating Cart");
     $http.post("php/displayItems.php").then(function successCallback(response) {
-      console.log(response);
+      //console.log(response);
       if (response.data.msg == "false") {
         $scope.items = [];
         closeNav();
@@ -402,7 +415,7 @@ app.controller("shoppingController", function ($scope, $http) {
         let res = JSON.stringify(response.data.items[0]);
         let ress = JSON.parse(res);
         $scope.items = ress;
-        console.log($scope.items);
+        //console.log($scope.items);
       }
     });
   });

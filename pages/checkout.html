@@ -1,21 +1,13 @@
 <head>
   <title>Checkout!</title>
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="css/serviceDelivery/serviceDeliverCart.css"
-  />
+  <link rel="stylesheet" type="text/css" href="css/serviceDelivery/serviceDeliverCart.css" />
 </head>
 
 <body>
   <div class="reviewCart-Box">
     <h1 style="margin-bottom: 30px">Checkout</h1>
     <div class="reviewItems-Container" ng-repeat="bang in items.items">
-      <img
-        style="border-radius: 5px"
-        class="review-product-images"
-        src="{{bang.image}}"
-      />
+      <img style="border-radius: 5px" class="review-product-images" src="{{bang.image}}" />
       <br />
       <div class="reviewItems-Description">
         <span style="font-weight: bold">{{bang.itemName}}</span><br />
@@ -26,19 +18,13 @@
         <span class="sub-total">${{bang.cost * bang.quantity}}</span>
       </div>
     </div>
-    <hr
-      style="
+    <hr style="
         margin: 15px 0px;
         width: 800px;
         border: 0;
         border-top: 1px solid #ccc;
-      "
-    />
-    <span
-      style="font-weight: bold; font-size: 1.5rem"
-      class="reviewItems-TotalPrice"
-      name="totalCost"
-      >Total Price:
+      " />
+    <span style="font-weight: bold; font-size: 1.5rem" class="reviewItems-TotalPrice" name="totalCost">Total Price:
       <span style="margin-left: 595px; font-weight: bold; font-size: 20px">
         ${{totalCost}}
       </span>

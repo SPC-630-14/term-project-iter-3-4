@@ -1,184 +1,161 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/spa/spa.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
-  </head>
 
-  <body>
-    <!-- header, nav -->
-    <div id="main-nav-bar">
-      <header>
-        <h1 class="nav-sys-logo">
-          <a class="nav-logo" href="../main/main.php">Furniture Palace</a>
-        </h1>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="css/spa/spa.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+</head>
 
-      <nav>
-        <ul id="nav-content">
-          <a class="nav-elem" href="#!">Home</a>
-          <a class="nav-elem" href="#!aboutus">About Us</a>
-          <a class="nav-elem" href="#!contactus">Contact Us</a>
-          <a class="nav-elem" href="#!reviews">Review</a>
-          <a id="login" href="#!login"
-            ><button type="button" id="login-Btn">Login</button></a
-          >
-          <button
-            id="s-cart"
-            class="s-cart"
-            style="margin-left: 15px"
-            onclick="openNav()"
-          >
-            <img
-              class="shop-cart"
-              src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/24/000000/external-shopping-cart-interface-kiranshastry-lineal-kiranshastry-1.png"
-            />
-          </button>
+<body>
+  <!-- header, nav -->
+  <div id="main-nav-bar">
+    <header>
+      <h1 class="nav-sys-logo">
+        <a class="nav-logo" href="../main/main.php">Furniture Palace</a>
+      </h1>
+    </header>
 
-          <div id="shopping-cart" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-              >×</a
-            >
-            <a href="#">Shopping Cart</a>
-            <p>Drag items into box below</p>
+    <nav>
+      <ul id="nav-content">
+        <a class="nav-elem" href="#!">Home</a>
+        <a class="nav-elem" href="#!aboutus">About Us</a>
+        <a class="nav-elem" href="#!contactus">Contact Us</a>
+        <a class="nav-elem" href="#!reviews">Review</a>
+        <a id="login" href="#!login"><button type="button" id="login-Btn">Login</button></a>
+        <button id="s-cart" class="s-cart" style="margin-left: 15px" onclick="openNav()">
+          <img class="shop-cart"
+            src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/24/000000/external-shopping-cart-interface-kiranshastry-lineal-kiranshastry-1.png" />
+        </button>
 
-            <section
-              id="cart"
-              class="shopping-cart"
-              ng-controller="shoppingController"
-            >
-              <form method="post">
-                <ul id="listCart">
-                  <!-- <li ng-repeat="bang in items.items" class="itemProduct" id="{{bang.catalogueID}}"
+        <div id="shopping-cart" class="sidebar">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="#">Shopping Cart</a>
+          <p>Drag items into box below</p>
+
+          <section id="cart" class="shopping-cart" ng-controller="shoppingController">
+            <form method="post">
+              <ul id="listCart">
+                <!-- <li ng-repeat="bang in items.items" class="itemProduct" id="{{bang.catalogueID}}"
                   data-price="{{bang.cost}}">
                   <img class="all-product-images" src="{{bang.image}}">
                   <h1>{{bang.itemName}}</h1>
                   <span><b>Price:</b> {{bang.cost}}</span>
                   <input type="hidden" name="{{bang.type}}{{bang.index}}">
                 </li> -->
-                  <li
-                    draggable="true"
-                    ng-repeat="bang in items.items"
-                    class="items"
-                    data-price="9.99"
-                    data-id="{{bang.catalogueID}}"
-                    data-quantity="{{bang.quantity}}"
-                  >
-                    <img class="all-product-images" src="{{bang.image}}" />
-                    <h1 class="ng-binding">{{bang.itemName}}</h1>
-                    <span class="ng-binding"><b>Price:</b> {{bang.cost}}</span>
-                    <input
-                      type="hidden"
-                      name="{{bang.catalogueID}}"
-                      autocomplete="off"
-                      data-id="{{bang.catalogueID}}"
-                      value="1"
-                    />
-                    <span class="quantity"> x {{bang.quantity}}</span
-                    ><span class="sub-total">
-                      = ${{bang.cost * bang.quantity}}</span
-                    >
-                  </li>
-                </ul>
-                <span class="total">Total: 0.00</span>
-                <button class="checkout-button">
-                  <a style="all: unset" href="#!checkout">Checkout</a>
-                </button>
-              </form>
-            </section>
-          </div>
-        </ul>
-      </nav>
-    </div>
-
-    <div id="sec-nav-bar">
-      <nav>
-        <div class="wrapper">
-          <!-- FURNITURE -->
-          <div class="f-menu">
-            <button id="f-Btn">Living Room</button>
-            <div class="f-dropdown-menu">
-              <ul id="f">
-                <li>
-                  <a href="#!chairs">Chairs</a>
-                </li>
-                <li>
-                  <a href="#!tables">Tables</a>
-                </li>
-                <li>
-                  <a href="#!sofas">Sofas</a>
+                <li draggable="true" ng-repeat="bang in items.items" class="items" data-price="9.99"
+                  data-id="{{bang.catalogueID}}" data-quantity="{{bang.quantity}}">
+                  <img class="all-product-images" src="{{bang.image}}" />
+                  <h1 class="ng-binding">{{bang.itemName}}</h1>
+                  <span class="ng-binding"><b>Price:</b> {{bang.cost}}</span>
+                  <input type="hidden" name="{{bang.catalogueID}}" autocomplete="off" data-id="{{bang.catalogueID}}"
+                    value="1" />
+                  <span class="quantity"> x {{bang.quantity}}</span><span class="sub-total">
+                    = ${{bang.cost * bang.quantity}}</span>
                 </li>
               </ul>
-            </div>
-          </div>
+              <span class="total">Total: 0.00</span>
+              <button class="checkout-button">
+                <a style="all: unset" href="#!checkout">Checkout</a>
+              </button>
+            </form>
+          </section>
+        </div>
+      </ul>
+    </nav>
+  </div>
 
-          <!-- HOME OFFICE -->
-          <div class="h-menu">
-            <button id="h-Btn">Home Office</button>
-            <div class="h-dropdown-menu">
-              <ul id="h">
-                <li>
-                  <a href="#!drawers">Drawers</a>
-                </li>
-                <li>
-                  <a href="#!lamps">Lamps</a>
-                </li>
-                <li>
-                  <a href="#!chargers">Chargers</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- BEDS -->
-          <div class="b-menu">
-            <button id="b-Btn">Bedroom</button>
-            <div class="b-dropdown-menu">
-              <ul id="b">
-                <li>
-                  <a href="#!beds">Beds</a>
-                </li>
-                <li>
-                  <a href="#!mattresses">Mattresses</a>
-                </li>
-                <li>
-                  <a href="#!nightstands">Nightstands</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- BEDS -->
-          <div class="br-menu">
-            <button id="br-Btn">Bathroom</button>
-            <div class="br-dropdown-menu">
-              <ul id="br">
-                <li>
-                  <a href="#!mirrors">Mirrors</a>
-                </li>
-                <li>
-                  <a href="#!sinks">Sinks</a>
-                </li>
-                <li>
-                  <a href="#!bins">Bins</a>
-                </li>
-              </ul>
-            </div>
+  <div id="sec-nav-bar">
+    <nav>
+      <div class="wrapper">
+        <!-- FURNITURE -->
+        <div class="f-menu">
+          <button id="f-Btn">Living Room</button>
+          <div class="f-dropdown-menu">
+            <ul id="f">
+              <li>
+                <a href="#!chairs">Chairs</a>
+              </li>
+              <li>
+                <a href="#!tables">Tables</a>
+              </li>
+              <li>
+                <a href="#!sofas">Sofas</a>
+              </li>
+            </ul>
           </div>
         </div>
-      </nav>
-    </div>
-    <div ng-view></div>
-    <script src="js/routing.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/spa.js"></script>
-    <script src="js/catalogue.js"></script>
-  </body>
+
+        <!-- HOME OFFICE -->
+        <div class="h-menu">
+          <button id="h-Btn">Home Office</button>
+          <div class="h-dropdown-menu">
+            <ul id="h">
+              <li>
+                <a href="#!drawers">Drawers</a>
+              </li>
+              <li>
+                <a href="#!lamps">Lamps</a>
+              </li>
+              <li>
+                <a href="#!chargers">Chargers</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BEDS -->
+        <div class="b-menu">
+          <button id="b-Btn">Bedroom</button>
+          <div class="b-dropdown-menu">
+            <ul id="b">
+              <li>
+                <a href="#!beds">Beds</a>
+              </li>
+              <li>
+                <a href="#!mattresses">Mattresses</a>
+              </li>
+              <li>
+                <a href="#!nightstands">Nightstands</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BEDS -->
+        <div class="br-menu">
+          <button id="br-Btn">Bathroom</button>
+          <div class="br-dropdown-menu">
+            <ul id="br">
+              <li>
+                <a href="#!mirrors">Mirrors</a>
+              </li>
+              <li>
+                <a href="#!sinks">Sinks</a>
+              </li>
+              <li>
+                <a href="#!bins">Bins</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div ng-view></div>
+  <script src="js/routing.js"></script>
+  <script src="js/controllers.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2mAYmeS6wL_5Tvn86c3Ij2xPQtHb5CaY"></script>
+  <script src="js/spa.js"></script>
+  <script src="js/catalogue.js"></script>
+
+</body>
+
 </html>

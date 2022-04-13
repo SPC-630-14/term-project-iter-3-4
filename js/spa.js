@@ -104,4 +104,50 @@ function loginReload() {
     });
 };
 
+function initMap(userLat, userLong, storeLat, storeLong) {
+    console.log("trying");
+    var location = { lat: storeLat, lng: storeLong };
+    var location2 = { lat: userLat, lng: userLong };
+
+    var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 13,
+        center: location,
+    });
+
+    console.log(document.getElementById("map"));
+
+    var marker = new google.maps.Marker({ position: location, map: map });
+    var infoWindow = new google.maps.InfoWindow({
+        content: "???",
+    });
+    marker.addListener("click", function () {
+        infoWindow.open(map, marker);
+    });
+
+    var marker2 = new google.maps.Marker({ position: location2, map: map });
+    var infoWindow2 = new google.maps.InfoWindow({
+        content: "he",
+    });
+    marker2.addListener("click", function () {
+        infoWindow2.open(map, marker2);
+    });
+
+    // var start = new google.maps.LatLng(storeLat, storeLong);
+    // var end = new google.maps.LatLng(userLat, userLong);
+
+    // var display = new google.maps.DirectionsRenderer();
+    // var services = new google.maps.DirectionsService();
+    // display.setMap(map);
+    // var request = {
+    //     origin: start,
+    //     destination: end,
+    //     travelMode: 'DRIVING'
+    // };
+    // services.route(request, function (result, status) {
+    //     if (status == 'OK') {
+    //         display.setDirections(result);
+    //     }
+    // });
+}
+
 window.onload = loginReload();
