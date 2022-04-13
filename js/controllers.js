@@ -404,36 +404,64 @@ app.controller("reviewController", function ($scope, $http) {
 });
 
 app.controller("shoppingController", function ($scope, $http, $location) {
-  $http.post("php/displayItems.php").then(function successCallback(response) {
-    console.log(response);
-    if (response.data.msg == "false") {
-      $scope.items = [];
-      closeNav();
-    } else {
-      let res = JSON.stringify(response.data.items[0]);
-      let ress = JSON.parse(res);
-      $scope.items = ress;
-      console.log($scope.items);
-    }
-  });
   $scope.$on("$locationChangeSuccess", function (event, newUrl, odURL) {
-    if ($location.$$path == "/processing") {
-      $http.post("php/displayItems.php").then(function successCallback(response) {
-        console.log(response);
-        if (response.data.msg == "false") {
-          $scope.items = [];
-          closeNav();
-        } else {
-          let res = JSON.stringify(response.data.items[0]);
-          let ress = JSON.parse(res);
-          $scope.items = ress;
-          console.log($scope.items);
-        }
-      });
-    }
-    else if ($location.$$path == "/logOut") {
-      $scope.items = [];
-      closeNav();
-    }
+
+    $http.post("php/displayItems.php").then(function successCallback(response) {
+      console.log(response);
+      if (response.data.msg == "false") {
+        $scope.items = [];
+        closeNav();
+        $(".items").remove();
+      }
+      else {
+        let res = JSON.stringify(response.data.items[0]);
+        let ress = JSON.parse(res);
+        $scope.items = ress;
+        console.log($scope.items);
+        $(".items").remove();
+      }
+    });
+
   });
-});
+}
+);
+
+
+
+// app.controller("shoppingController", function ($scope, $http, $location) {
+//   $http.post("php/displayItems.php").then(function successCallback(response) {
+//     console.log(response);
+//     if (response.data.msg == "false") {
+//       $scope.items = [];
+//       closeNav();
+//     } else {
+//       let res = JSON.stringify(response.data.items[0]);
+//       let ress = JSON.parse(res);
+//       $scope.items = ress;
+//       console.log($scope.items);
+//     }
+//   });
+//   $scope.$on("$locationChangeSuccess", function (event, newUrl, odURL) {
+//     if ($location.$$path == "/processing") {
+//       $http.post("php/displayItems.php").then(function successCallback(response) {
+//         console.log(response);
+//         if (response.data.msg == "false") {
+//           $scope.items = [];
+//           closeNav();
+//           $(".items").remove();
+//         } else {
+//           let res = JSON.stringify(response.data.items[0]);
+//           let ress = JSON.parse(res);
+//           $scope.items = ress;
+//           console.log($scope.items);
+//           $(".items").remove();
+//         }
+//       });
+//     }
+//     else if ($location.$$path == "/logOut") {
+//       $scope.items = [];
+//       closeNav();
+//       $(".items").remove();
+//     }
+//   });
+// });
