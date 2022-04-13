@@ -81,6 +81,7 @@ $trip = "CREATE TABLE Trip (
 $order = "CREATE TABLE Ordered (
     orderID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     userID INT(6) UNSIGNED,
+    transactionID VARCHAR(100) UNIQUE,
     tripID INT(6) UNSIGNED,
     receiptID INT(6) UNSIGNED,
     totalCost DEC(10,2),
@@ -92,6 +93,19 @@ $order = "CREATE TABLE Ordered (
     CONSTRAINT FK_SO FOREIGN KEY (receiptID) REFERENCES Shopping(receiptID)
     )";
 
+$payment = "CREATE TABLE Payment (
+    paymentID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    transactionID VARCHAR(100),
+    date VARCHAR(100),
+    type VARCHAR(100),
+    balance FLOAT(6,2),
+    changeInBalance FLOAT(6,2),
+    cardID INT(6) UNSIGNED,
+    CONSTRAINT FK_CP FOREIGN KEY (cardID) REFERENCES Card(cardID),
+    CONSTRAINT FK_PO FOREIGN KEY (transactionID) REFERENCES Ordered(transactionID)
+    )";
+
+
 $coord = "CREATE TABLE Coordinates (
     address VARCHAR(100)PRIMARY KEY,
     latitude VARCHAR(100),
@@ -99,7 +113,7 @@ $coord = "CREATE TABLE Coordinates (
     )";
 
 $card = "CREATE TABLE Card (
-    orderID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    cardID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     userID INT(6) UNSIGNED,
     nameOnCard VARCHAR(100),
     creditCardNumber VARCHAR(16),
@@ -110,6 +124,6 @@ $card = "CREATE TABLE Card (
     )";
 
 
-$createTables = array ($user,$truck,$manufacturer,$store,$item,$shopping,$cart,$trip,$order,$coord,$card );
+$createTables = array ($user,$truck,$manufacturer,$store,$item,$shopping,$cart,$trip,$order,$coord,$card,$payment );
 
 ?>

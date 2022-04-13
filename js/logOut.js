@@ -7,12 +7,13 @@ function logOut() {
             document.getElementById("login").setAttribute("href", "#!login");
             document.getElementById("login-Btn").innerHTML = "Login";
             $("#logOut-Btn").remove();
-            window.location.href = "#!";
             alert("You have logged off.");
+            window.location.href = "#!";
+
         },
         error: function () {
-            window.location.href = "#!";
             alert("You have logged off.");
+            window.location.href = "#!";
         }
     });
 };

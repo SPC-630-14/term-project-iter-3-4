@@ -1,4 +1,17 @@
 app.controller("chairController", function ($scope, $http) {
+  $http
+    .post("php/signUpLogin/checkLogin.php")
+    .then(function successCallback(response) {
+      console.log(response.data);
+      if (response.data.status == "closed") {
+        window.location.href = "#!";
+        alert("Please Log In!");
+      }
+      else {
+        openNav();
+      }
+    });
+
   $scope.type = "CHA";
 
   var data = JSON.stringify({ type: $scope.type });
@@ -13,6 +26,18 @@ app.controller("chairController", function ($scope, $http) {
 });
 
 app.controller("tableController", function ($scope, $http) {
+  $http
+    .post("php/signUpLogin/checkLogin.php")
+    .then(function successCallback(response) {
+      console.log(response.data);
+      if (response.data.status == "closed") {
+        window.location.href = "#!";
+        alert("Please Log In!");
+      }
+      else {
+        openNav();
+      }
+    });
   $scope.type = "TAB";
 
   var data = JSON.stringify({ type: $scope.type });
@@ -27,6 +52,18 @@ app.controller("tableController", function ($scope, $http) {
 });
 
 app.controller("sofaController", function ($scope, $http) {
+  $http
+    .post("php/signUpLogin/checkLogin.php")
+    .then(function successCallback(response) {
+      console.log(response.data);
+      if (response.data.status == "closed") {
+        window.location.href = "#!";
+        alert("Please Log In!");
+      }
+      else {
+        openNav();
+      }
+    });
   $scope.type = "SOF";
 
   var data = JSON.stringify({ type: $scope.type });
@@ -41,6 +78,18 @@ app.controller("sofaController", function ($scope, $http) {
 });
 
 app.controller("drawerController", function ($scope, $http) {
+  $http
+    .post("php/signUpLogin/checkLogin.php")
+    .then(function successCallback(response) {
+      console.log(response.data);
+      if (response.data.status == "closed") {
+        window.location.href = "#!";
+        alert("Please Log In!");
+      }
+      else {
+        openNav();
+      }
+    });
   $scope.type = "DRA";
 
   var data = JSON.stringify({ type: $scope.type });
@@ -55,6 +104,18 @@ app.controller("drawerController", function ($scope, $http) {
 });
 
 app.controller("lampController", function ($scope, $http) {
+  $http
+    .post("php/signUpLogin/checkLogin.php")
+    .then(function successCallback(response) {
+      console.log(response.data);
+      if (response.data.status == "closed") {
+        window.location.href = "#!";
+        alert("Please Log In!");
+      }
+      else {
+        openNav();
+      }
+    });
   $scope.type = "LAM";
 
   var data = JSON.stringify({ type: $scope.type });
@@ -69,6 +130,18 @@ app.controller("lampController", function ($scope, $http) {
 });
 
 app.controller("chargerController", function ($scope, $http) {
+  $http
+    .post("php/signUpLogin/checkLogin.php")
+    .then(function successCallback(response) {
+      console.log(response.data);
+      if (response.data.status == "closed") {
+        window.location.href = "#!";
+        alert("Please Log In!");
+      }
+      else {
+        openNav();
+      }
+    });
   $scope.type = "CHG";
 
   var data = JSON.stringify({ type: $scope.type });
@@ -83,6 +156,18 @@ app.controller("chargerController", function ($scope, $http) {
 });
 
 app.controller("bedController", function ($scope, $http) {
+  $http
+    .post("php/signUpLogin/checkLogin.php")
+    .then(function successCallback(response) {
+      console.log(response.data);
+      if (response.data.status == "closed") {
+        window.location.href = "#!";
+        alert("Please Log In!");
+      }
+      else {
+        openNav();
+      }
+    });
   $scope.type = "BED";
 
   var data = JSON.stringify({ type: $scope.type });
@@ -97,6 +182,18 @@ app.controller("bedController", function ($scope, $http) {
 });
 
 app.controller("mattressController", function ($scope, $http) {
+  $http
+    .post("php/signUpLogin/checkLogin.php")
+    .then(function successCallback(response) {
+      console.log(response.data);
+      if (response.data.status == "closed") {
+        window.location.href = "#!";
+        alert("Please Log In!");
+      }
+      else {
+        openNav();
+      }
+    });
   $scope.type = "MAT";
 
   var data = JSON.stringify({ type: $scope.type });
@@ -111,6 +208,18 @@ app.controller("mattressController", function ($scope, $http) {
 });
 
 app.controller("nightstandController", function ($scope, $http) {
+  $http
+    .post("php/signUpLogin/checkLogin.php")
+    .then(function successCallback(response) {
+      console.log(response.data);
+      if (response.data.status == "closed") {
+        window.location.href = "#!";
+        alert("Please Log In!");
+      }
+      else {
+        openNav();
+      }
+    });
   $scope.type = "NST";
 
   var data = JSON.stringify({ type: $scope.type });
@@ -125,6 +234,18 @@ app.controller("nightstandController", function ($scope, $http) {
 });
 
 app.controller("mirrorController", function ($scope, $http) {
+  $http
+    .post("php/signUpLogin/checkLogin.php")
+    .then(function successCallback(response) {
+      console.log(response.data);
+      if (response.data.status == "closed") {
+        window.location.href = "#!";
+        alert("Please Log In!");
+      }
+      else {
+        openNav();
+      }
+    });
   $scope.type = "MIR";
 
   var data = JSON.stringify({ type: $scope.type });
@@ -139,6 +260,18 @@ app.controller("mirrorController", function ($scope, $http) {
 });
 
 app.controller("sinkController", function ($scope, $http) {
+  $http
+    .post("php/signUpLogin/checkLogin.php")
+    .then(function successCallback(response) {
+      console.log(response.data);
+      if (response.data.status == "closed") {
+        window.location.href = "#!";
+        alert("Please Log In!");
+      }
+      else {
+        openNav();
+      }
+    });
   $scope.type = "SIN";
 
   var data = JSON.stringify({ type: $scope.type });
@@ -153,6 +286,18 @@ app.controller("sinkController", function ($scope, $http) {
 });
 
 app.controller("binController", function ($scope, $http) {
+  $http
+    .post("php/signUpLogin/checkLogin.php")
+    .then(function successCallback(response) {
+      console.log(response.data);
+      if (response.data.status == "closed") {
+        window.location.href = "#!";
+        alert("Please Log In!");
+      }
+      else {
+        openNav();
+      }
+    });
   $scope.type = "BIN";
 
   var data = JSON.stringify({ type: $scope.type });
@@ -167,6 +312,8 @@ app.controller("binController", function ($scope, $http) {
 });
 
 app.controller("checkoutController", function ($scope, $http) {
+  closeNav();
+
   $scope.totalCost = 0;
 
   $http.post("php/displayItems.php").then(function successCallback(response) {
@@ -177,8 +324,9 @@ app.controller("checkoutController", function ($scope, $http) {
 
     for (let i in $scope.items.items) {
       $scope.totalCost =
-        parseFloat($scope.totalCost) + parseFloat($scope.items.items[i].cost);
+        parseFloat($scope.totalCost) + (parseFloat($scope.items.items[i].cost) * $scope.items.items[i].quantity);
     }
+    $scope.totalCost = $scope.totalCost.toFixed(2);
     console.log($scope.totalCost);
   });
 });
@@ -194,14 +342,6 @@ app.controller(
       $scope.paymentMethods = ress.paymentMethods;
       console.log($scope.paymentMethods);
     });
-    // $http.post("php/displayItems.php")
-    //   .then(function successCallback(response) {
-    //     let res = JSON.stringify(response.data.items[0]);
-    //     let ress = JSON.parse(res);
-    //     $scope.items = ress;
-    //     console.log($scope.items);
-    //   });
-
     $scope.formData;
 
     $scope.submitFormData = function () {
@@ -222,10 +362,21 @@ app.controller("reviewController", function ($scope, $localStorage) {
 });
 
 app.controller("shoppingController", function ($scope, $http) {
-  $http.post("php/displayItems.php").then(function successCallback(response) {
-    let res = JSON.stringify(response.data.items[0]);
-    let ress = JSON.parse(res);
-    $scope.items = ress;
-    console.log($scope.items);
+  $scope.$on('$locationChangeSuccess', function (event, newUrl, oldURL) {
+    console.log("updating Cart");
+    $http.post("php/displayItems.php").then(function successCallback(response) {
+      console.log(response);
+      if (response.data.msg == "false") {
+        $scope.items = [];
+        closeNav();
+      }
+      else {
+        let res = JSON.stringify(response.data.items[0]);
+        let ress = JSON.parse(res);
+        $scope.items = ress;
+        console.log($scope.items);
+      }
+    });
+
   });
 });

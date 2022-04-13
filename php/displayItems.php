@@ -8,6 +8,12 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
 
+if (!(isset($_SESSION['shoppingID']))) {
+    http_response_code (200);
+    echo json_encode([ "msg" => "false"]);
+    exit();
+}
+
 $receiptID = $_SESSION['shoppingID'];
 $retrieve = "SELECT catalogueID, quantity FROM Cart WHERE receiptID = '$receiptID'";
 $result = $conn->query($retrieve);
@@ -20,6 +26,12 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $catQuant = array ($row['catalogueID'], $row['quantity']);
         array_push($cartArray, $catQuant);
+    }
+
+    if (empty($cartArray)) {
+        http_response_code (200);
+        echo json_encode([ "msg" => "false"]);
+        exit();
     }
 
     $subTotal = 0;
