@@ -16,15 +16,25 @@ $insertAddress = array (
         VALUES ('1107 Avenue Rd, Toronto, ON M5N 3B1', '43.707582','-79.409372')"
 );
 
+function generateRandomSalt(){
+    return base64_encode(random_bytes(12));
+  }
+
+$p = "123";
+
+$salt = generateRandomSalt();
+$saltpass = $p.$salt;
+$md5pass = md5($saltpass);
+
 
 
 $insertUser = array (
-    "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password, type) 
-        VALUES ('Georgz', 'Ilagan', '111-111-111', 'georgz.ilagan@ryerson.ca', '92 Holly St, Toronto, ON M4S 3H3, Canada', 'gilagan', '123123','Admin')",
-    "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password, type) 
-        VALUES ('Ralph', 'Liton', '222-222-222', 'rliton@ryerson.ca', '1107 Avenue Rd, Toronto, ON M5N 3B1', 'rliton', '123123', 'Admin')",
-    "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password, type) 
-        VALUES ('Jacob', 'Rokhvarg', '333-333-333', 'jacob.rokhvarg@ryerson.ca', '1921 Albion Rd, Etobicoke, ON M9W 5S8, Canada', 'jrokhvarg', '123123','Admin')"
+    "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password, type, salt) 
+        VALUES ('Georgz', 'Ilagan', '111-111-111', 'georgz.ilagan@ryerson.ca', '92 Holly St, Toronto, ON M4S 3H3, Canada', 'gilagan', '$md5pass','Admin', '$salt')",
+    "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password, type, salt) 
+        VALUES ('Ralph', 'Liton', '222-222-222', 'rliton@ryerson.ca', '1107 Avenue Rd, Toronto, ON M5N 3B1', 'rliton', '$md5pass', 'Admin','$salt')",
+    "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password, type, salt) 
+        VALUES ('Jacob', 'Rokhvarg', '333-333-333', 'jacob.rokhvarg@ryerson.ca', '1921 Albion Rd, Etobicoke, ON M9W 5S8, Canada', 'jrokhvarg', '$md5pass','Admin', '$salt')"
 );
 
 $insertTruck = array (
@@ -215,13 +225,30 @@ $insertItemBins = array (
         VALUES ('BIN5','Pedal Waste Bin', 9.99, 2, 25.00, 30.00,30.00,50.00,'black','aboutUsImages/Bathroom/Bins/Pedal-Waste-Bin.JPG')",
 );
 
+$creditCart1 = "1234123412341234";
+$creditCart2 = "6262626262626262";
+$creditCart3 = "8989898989898989";
+
+$salt1 = generateRandomSalt();
+$salt2 = generateRandomSalt();
+$salt3 = generateRandomSalt();
+
+$saltpass1 = $creditCart1.$salt;
+$saltpass2 = $creditCart2.$salt;
+$saltpass3 = $creditCart3.$salt;
+
+$md5pass1 = md5($saltpass1);
+$md5pass2 = md5($saltpass2);
+$md5pass3 = md5($saltpass3);
+
+
 $insertCards = array (
-    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC) 
-        VALUES (1, 'Georgz Ilagan', '4545454545454545', '06/30', 321)",
-    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC) 
-        VALUES (2, 'Ralph Liton', '6262626262626262', '06/30', 321)",
-    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC) 
-        VALUES (3, 'Jacob Rokhvarg', '8989898989898989', '06/30', 321)"
+    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC, last4Digits, salt) 
+        VALUES (1, 'Georgz Ilagan', '$md5pass1', '06/30', 321, '1234', '$salt1')",
+    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC, last4Digits, salt) 
+        VALUES (2, 'Ralph Liton', '$md5pass2', '06/30', 321, '6262', '$salt2')",
+    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC, last4Digits, salt) 
+        VALUES (3, 'Jacob Rokhvarg', '$md5pass3', '06/30', 321, '8989', '$salt3')"
 );
 
 $insertAssembly = array (

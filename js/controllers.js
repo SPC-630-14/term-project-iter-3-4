@@ -498,12 +498,12 @@ app.controller("shoppingController", function ($scope, $http, $location) {
 
 app.controller("invoiceController", function ($scope, $http, $location) {
   $http
-    .post("php/retrieveOrderVars.php")
+    .post("php/retrieveInvoiceVars.php")
     .then(function successCallback(response) {
       $scope.orderVars = response.data.orderVars;
-      $scope.items = response.data.items[0].items;
+      $scope.items = response.data.items2[0].items;
       console.log($scope.orderVars);
-      console.log($scope.items);
+      console.log(response);
       var Neat =
         parseFloat($scope.orderVars.totalCost) +
         $scope.orderVars.tripCost +
@@ -511,7 +511,7 @@ app.controller("invoiceController", function ($scope, $http, $location) {
       $scope.deliveryCost = $scope.orderVars.tripCost.toFixed(2);
       $scope.totalDeliveryCost = Neat.toFixed(2);
       $scope.assemblyCost = $scope.orderVars.assemblyCost.toFixed(2);
-      //console.log($scope.totalDeliveryCost)
+      console.log($scope.totalDeliveryCost)
 
       initMap(
         parseFloat($scope.orderVars.userLAT),

@@ -169,7 +169,7 @@ if ($conn) {
 }
 
 
-$_SESSION['transactionID'] = $transactionID;
+$_SESSION['orderVar']['transactionID'] = $transactionID;
 
 if ($conn) {
     $receiptID = $_SESSION['shoppingID'];

@@ -7,7 +7,7 @@ $user = "CREATE TABLE User (
     email VARCHAR(50) NOT NULL UNIQUE,
     address VARCHAR(50) NOT NULL,
     loginID VARCHAR(50) NOT NULL,
-    password VARCHAR(50) NOT NULL,
+    password VARCHAR(100) NOT NULL,
     salt VARCHAR(100), 
     type VARCHAR(25) DEFAULT 'User'
     )";

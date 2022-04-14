@@ -71,7 +71,7 @@ function retrieveValidLogins() {
     $conn = connectDB();
     if ($conn) {
 
-        $showLogin = "SELECT loginID, password, type, userID, address FROM User";
+        $showLogin = "SELECT * FROM User";
         $result = $conn->query($showLogin);
 
         if (session_status() == PHP_SESSION_NONE) {
@@ -79,7 +79,7 @@ function retrieveValidLogins() {
         }
         $_SESSION['validLogins'] = array ();
         while ($row = $result->fetch_assoc()) {
-            $appending = array ($row['loginID'],$row['password'], $row['type'], $row['userID'], $row['address']);
+            $appending = array ($row['loginID'],$row['password'], $row['type'], $row['userID'], $row['address'], $row['salt']);
             if (!(in_array($appending, $_SESSION['validLogins']))) {
                 array_push($_SESSION['validLogins'], $appending);
             }
@@ -90,12 +90,17 @@ function retrieveValidLogins() {
     }
 }
 
+
 function createNewLogin($firstName, $lastname, $telephone, $email, $address, $loginID, $password) {
     $conn = connectDB();
     if ($conn) {
 
-        $newLogin = "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password) 
-        VALUES ('$firstName', '$lastname', '$telephone', '$email', '$address', '$loginID', '$password')";
+        $salt = base64_encode(random_bytes(12));
+        $saltpass = $password.$salt;
+        $md5pass = md5($saltpass);
+
+        $newLogin = "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password, salt) 
+        VALUES ('$firstName', '$lastname', '$telephone', '$email', '$address', '$loginID', '$md5pass', '$salt')";
 
         try {
             $conn->query($newLogin);

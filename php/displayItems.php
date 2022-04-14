@@ -63,8 +63,8 @@ if ($result->num_rows > 0) {
 
 }
 
-
 http_response_code (200);
 $finalData[] = Array ( "items" => $data);
+$_SESSION['orderVar']['cheatCart'] = $finalData;
 echo json_encode( [ 'items' => $finalData  ] );
 ?>
