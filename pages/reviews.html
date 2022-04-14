@@ -7,61 +7,138 @@
 </head>
 
 <body>
-    <div class="navigateBack">
-		<a href="#"><h2>To go back to the home page, click here</h2></a>
-	</div>
-    <h1>Reviews</h1>
-    <form id="itemReviewForm" action="" method="post">
+        <div id="container-Review">
+        <h1 id="headerReview">Reviews</h1>
+        <form id="itemReviewForm" action="" method="post">
 
-        <label for="itemReview">Please Select Item to Review</label>
-        <select id="itemReview" name="itemReview">
-            <option value="Service A">Service A</option>
-            <option value="Service B">Serivce B</option>
-            <option value="Service C">Service C</option>
-        </select>
+            <label for="itemReview">Please Select Item to Review:</label>
+            <br>
+            <select id="itemReview" name="itemReview" >
+                <optgroup label="Chairs">
+                    <option value="CHA1">CHA1</option>
+                    <option value="CHA2">CHA2</option>
+                    <option value="CHA3">CHA3</option>
+                    <option value="CHA4">CHA4</option>
+                    <option value="CHA5">CHA5</option>
+                </optgroup>
+                <optgroup label="Tables">
+                    <option value="TAB1">TAB1</option>
+                    <option value="TAB2">TAB2</option>
+                    <option value="TAB3">TAB3</option>
+                    <option value="TAB4">TAB4</option>
+                    <option value="TAB5">TAB5</option>
+                </optgroup>
+                <optgroup label="Sofas">
+                    <option value="SOF1">SOF1</option>
+                    <option value="SOF2">SOF2</option>
+                    <option value="SOF3">SOF3</option>
+                    <option value="SOF4">SOF4</option>
+                    <option value="SOF5">SOF5</option>
+                </optgroup>
+                <optgroup label="Drawers">
+                    <option value="DRA1">DRA1</option>
+                    <option value="DRA2">DRA2</option>
+                    <option value="DRA3">DRA3</option>
+                    <option value="DRA4">DRA4</option>
+                    <option value="DRA5">DRA5</option>
+                </optgroup>
+                <optgroup label="Lamps">
+                    <option value="LAM1">LAM1</option>
+                    <option value="LAM2">LAM2</option>
+                    <option value="LAM3">LAM3</option>
+                    <option value="LAM4">LAM4</option>
+                    <option value="LAM5">LAM5</option>
+                </optgroup>
+                <optgroup label="Chargers">
+                    <option value="CHG1">CHG1</option>
+                    <option value="CHG2">CHG2</option>
+                    <option value="CHG3">CHG3</option>
+                    <option value="CHG4">CHG4</option>
+                    <option value="CHG5">CHG5</option>
+                </optgroup>
+                <optgroup label="Beds">
+                    <option value="BED1">BED1</option>
+                    <option value="BED2">BED2</option>
+                    <option value="BED3">BED3</option>
+                    <option value="BED4">BED4</option>
+                    <option value="BED5">BED5</option>
+                </optgroup>
+                <optgroup label="Mattresses">
+                    <option value="MAT1">MAT1</option>
+                    <option value="MAT2">MAT2</option>
+                    <option value="MAT3">MAT3</option>
+                    <option value="MAT4">MAT4</option>
+                    <option value="MAT5">MAT5</option>
+                </optgroup>
+                <optgroup label="Nightstands">
+                    <option value="NST1">NST1</option>
+                    <option value="NST2">NST2</option>
+                    <option value="NST3">NST3</option>
+                    <option value="NST4">NST4</option>
+                    <option value="NST5">NST5</option>
+                </optgroup>
+                <optgroup label="Mirrors">
+                    <option value="MIR1">MIR1</option>
+                    <option value="MIR2">MIR2</option>
+                    <option value="MIR3">MIR3</option>
+                    <option value="MIR4">MIR4</option>
+                    <option value="MIR5">MIR5</option>
+                </optgroup>
+                <optgroup label="Sinks">
+                    <option value="SIN1">SIN1</option>
+                    <option value="SIN2">SIN2</option>
+                    <option value="SIN3">SIN3</option>
+                    <option value="SIN4">SIN4</option>
+                    <option value="SIN5">SIN5</option>
+                </optgroup>
+                <optgroup label="Bins">
+                    <option value="BIN1">BIN1</option>
+                    <option value="BIN2"> BIN2</option>
+                    <option value="BIN3">BIN3</option>
+                    <option value="BIN4">BIN4</option>
+                    <option value="BIN5">BIN5</option>
+                </optgroup>
+                <optgroup label="Services">
+                    <option value="Service A">Service A</option>
+                    <option value="Service B">Serivce B</option>
+                    <option value="Service C">Service C</option>
+                </optgroup>
+            </select>
 
-        <br>
+            <br>
 
-        <label for="rating">Please define a rating number</label>
-        <select id="rating" name="rating">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-        </select>
-        
-        <br>
-        
-        <label for="review">Type in your review about our company here!</label>
-        <br><br>
-        <input type="text" id="description-review" name="description-review">
-        <br><br>
+            <label for="rating">Please define a rating number</label>
+            <br>
+            <select id="rating" name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            
+            <br>
+            
+            <label for="review">Type in your review about our company here!</label>
+            <br><br>
+            <textarea type="text" id="description-review" name="description-review"> </textarea>
+            <br><br>
 
-        <button class="submitReviews" type="submit" class="btn btn-info" name="button" value="submit">Submit Review</button>
-        <input type="hidden" name="action" value="reviews" />
-    </form>
+            <button id="submit-R" class="submitReviews" type="submit" class="btn btn-info" name="button" value="submit">Submit Review</button>
+            <input type="hidden" name="action" value="reviews" />
+        </form>
 
-    <form id="showReviews" action="" method="post">
-        <button class="showReviews" type="submit" class="btn btn-info" name="button" value="showReviews">Show Customer Reviews</button>
-        <input type="hidden" name="actionReviews" value="showReviews" />
-    </form>
+  
 
-    <div id="SR"></div>
+        <h1 style="width:550px;">Take a look at some of our previous customer's reviews!</h1>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1>Take a look at some of our previous customer's reviews!</h1>
-    <br>
-    <h3>Amazing products! I was very happy with the customer service as well. - John B</h3>
+        <form id="showReviews" action="" method="post">
+            <button id="submit-SR" class="showReviews" type="submit" class="btn btn-info" name="button" value="showReviews">Show Customer Reviews</button>
+            <input type="hidden" name="actionReviews" value="showReviews" />
+        </form>
 
-    <br>
-    <h3>Very pleased with how fast the shipping was. - Bob R</h3>
-
-    <br>
-    <h3>Had a great experience shopping here. - Jim L</h3>
+        <div id="SR"></div>
+    </div>
     <script src="js/reviews.js"></script>
 </body>

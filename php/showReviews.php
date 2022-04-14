@@ -30,10 +30,12 @@ if ( !empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST' && !empty($_POST['a
                 $ratingReview = $row['rating'];
                 $descriptionReview = $row['description'];
 
-                echo "<p> <b> Name: </b> $firstname $lastname </p>";
-                echo "<p> <b> Item Review: </b> $serviceReview </p>";
-                echo "<span> <b> Rating: </b> $ratingReview </span>";
-                echo "<p> <b> Feedback: </b> $descriptionReview </p>";
+                echo "<p id=\"FNLN-container\"> <img src=\"https://img.icons8.com/material/24/000000/user-male-circle--v1.png\"/> <b id=\"FNLN\"> $firstname $lastname </b> </p>";
+                echo "<p id=\"IR-container\"> <b> Item Review: </b> $serviceReview </p>";
+                echo "<span id=\"Rating-container\"> <b> Rating: </b> $ratingReview/6</span>";
+                echo "<p id=\"FB-container\"> <b> Feedback: </b> </p> <p id=\"FB-container\"> $descriptionReview </p>";
+                echo "<br> <br> <br>";
+                
             }
 
             http_response_code( 200 );

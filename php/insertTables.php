@@ -230,7 +230,18 @@ $insertAssembly = array (
 
 $insertReview = array (
     "INSERT INTO Review (userID, description, rating, service) 
-        VALUES (2, 'Great Review', '6', 'Service A')"
+        VALUES (1, 'Amazing products! I was very happy with the customer service as well. 
+        I loved the service and I am looking forward to shopping for more. 
+        I told my family about this website and rest assured they will be shopping here 
+        too. Amazing quality.', '6', 'Service A')",
+    "INSERT INTO Review (userID, description, rating, service) 
+    VALUES (2, 'Very pleased with how fast the shipping and delivery was. I ordered my item a 
+    few days ago and it arrived to my doorstep in 2 days. Unbelievable experience from this 
+    company. Furniture Palace will be my go to company instead of IKEA now!', '6', 'Service B')",
+    "INSERT INTO Review (userID, description, rating, service) 
+    VALUES (3, 'Had a great experience shopping here. Everything was quite simple and
+    I really enjoyed the variety of services given by Furniture Palace. Looking forward to
+    shopping here more often. ', '5', 'Service C')"
 );
 
 
