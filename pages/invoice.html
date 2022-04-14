@@ -2,21 +2,112 @@
   <title>Invoice!</title>
   <link rel="stylesheet" type="text/css" href="" />
 </head>
+<style>
+  .Invoice-Items,
+  .Invoice-Delivery,
+  .Invoice-Assembly,
+  .Invoice-Final,
+  .Invoice-Transaction {
+    text-align: center;
+  }
 
-<body>
+  .invoice-images {
+    margin-top: 10px;
+    width: 105px;
+    height: 105px;
+  }
+
+  p {
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+
+  b {
+    font-size: 16px;
+    color: #363636;
+  }
+
+  .titles {
+    margin-bottom: 20px;
+    font-weight: lighter;
+    color: #363636;
+  }
+
+  #map {
+    bottom: 15px;
+    height: 100vh;
+    width: 100%;
+  }
+</style>
+
+<body stlye="text-align:center">
   <div class="Invoice-Items">
     <div class="Invoice-Items-Container">
-      <h1>Items</h1>
+      <h1 class="titles">Items:</h1>
       <div ng-repeat="item in items">
-        <img src="{{item.image}}" /><br />
+        <h4 class="invoice-item-Name">{{item.itemName}}</h4>
+        <img class="invoice-images" src="{{item.image}}" /><br />
         <div class="reviewFinalItems-Description">
           <p>Qty: <span>{{item.quantity}} </span></p>
           <span>$ {{item.quantity * item.cost}}</span>
         </div>
+        <span class="sub-total">$ {{item.quantity * item.cost}}</span>
       </div>
+
     </div>
   </div>
-  <div class="Invoice-Delivery"></div>
-  <div class="Invoice-Assembly"></div>
+  <br>
+  <hr style="color:rgba(189, 189, 189,0.3);">
+  <br>
+  <div class="Invoice-Delivery">
+    <h1 class="titles">Delivery:</h1>
+    <p> <b> Distance: </b>
+      {{orderVars.distance}}
+    </p>
+    <p> <b> Delivery Cost: </b>
+      ${{deliveryCost}}
+    </p>
+    <p>
+      <b> Store Address: </b><br> {{orderVars.storeAddress}}
+    </p>
+    <p>
+      <b> Destination: </b> <br>{{orderVars.userAddress}}
+    </p>
+  </div>
+  <hr style="color:rgba(189, 189, 189,0.3);">
+  <br>
+  <div class="Invoice-Assembly">
+    <div ng-switch="orderVars.assembly">
+      <div ng-switch-default></div>
+      <div ng-switch-when="true">
+        <h1 class="titles">Assembly:</h1>
+        <p> <b> Type: </b>
+          {{orderVars.assemblyType}}
+        </p>
+        <p> <b> Assembly Cost: </b>
+          ${{assemblyCost}}
+        </p>
+      </div>
+
+    </div>
+  </div>
+  <hr style="color:rgba(189, 189, 189,0.3);">
+  <br>
+  <div class="Invoice-Transaction">
+    <h1 class="titles">Payment:</h1>
+    <p> <b> Transaction ID: </b>
+      {{orderVars.transactionID}}
+    </p>
+  </div>
+  <br>
+  <hr style="color:rgba(189, 189, 189,0.3);">
+  <br>
+  <div class="Invoice-Final">
+    <h1 class="\titles">Total Cost:</h1>
+    <p style=" clear:both ;font-size:30px; " name="totalCost"> <b style="color:#363636;"></b>
+      ${{totalDeliveryCost}}</p>
+  </div>
+  <br>
+  <hr style="color:rgba(189, 189, 189,0.3);">
   <div id="map"></div>
 </body>
