@@ -131,7 +131,15 @@ $card = "CREATE TABLE Card (
     CONSTRAINT FK_IOP FOREIGN KEY (userID) REFERENCES User(userID)
     )";
 
+$review = "CREATE TABLE Review (
+    reviewID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    userID INT(6) UNSIGNED,
+    description VARCHAR(100),
+    rating VARCHAR (1),
+    service VARCHAR (100),
+    CONSTRAINT FK_ FOREIGN KEY (userID) REFERENCES User(userID)
+    )";
 
-$createTables = array ($user,$truck,$manufacturer,$store,$item,$shopping,$cart,$trip,$assembly,$order,$coord,$card,$payment );
+$createTables = array ($user,$truck,$manufacturer,$store,$item,$shopping,$cart,$trip,$assembly,$order,$coord,$card,$payment,$review );
 
 ?>

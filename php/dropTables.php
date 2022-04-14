@@ -25,6 +25,8 @@ $payment = "DROP TABLE Payment";
 
 $assembly = "DROP TABLE Assembly";
 
-$dropTables = array ($payment,$card,$order,$assembly,$trip,$cart,$shopping,$item,$store,$manufacturer,$truck,$user, $coord );
+$review = "DROP TABLE Review";
+
+$dropTables = array ($payment,$card,$order,$assembly,$trip,$cart,$shopping,$item,$store,$manufacturer,$truck,$user, $coord,$review);
 
 ?>

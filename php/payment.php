@@ -3,6 +3,8 @@ include ("sqlFunctions.php");
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
+
+
 if ( !empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST' && !empty($_POST['action']) && $_POST['action'] === 'submit' ) {
  
     $errors = '';

@@ -2,7 +2,7 @@ var app = angular.module("myApp", ["ngRoute", "ngStorage"]);
 app.config(function ($routeProvider) {
   $routeProvider
     .when("/", {
-      templateUrl: "pages/main.html"
+      templateUrl: "pages/main.html",
     })
     .when("/aboutus", {
       templateUrl: "pages/aboutus.html",

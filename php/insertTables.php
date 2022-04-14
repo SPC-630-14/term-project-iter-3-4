@@ -226,7 +226,11 @@ $insertCards = array (
 
 $insertAssembly = array (
     "INSERT INTO Assembly (assemblyID, type, cost) 
-        VALUES (1, 'False', 0.00)"
+        VALUES (1, 'False', 0.00)");
+
+$insertReview = array (
+    "INSERT INTO Review (userID, description, rating, service) 
+        VALUES (2, 'Great Review', '6', 'Service A')"
 );
 
 
