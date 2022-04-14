@@ -10,7 +10,28 @@ if (!(isset($_SESSION['shoppingID']))) {
 include_once('sqlFunctions.php');
 $conn = connectDB();
 
-$receiptID = $_SESSION['shoppingID'];
+$userID = $_SESSION['userID'];
+
+$find = "SELECT * FROM Shopping WHERE userID = $userID AND status ='Closed' ORDER BY receiptID DESC LIMIT 1";
+
+try {
+    $finding = $conn->query($find);
+
+    if ($finding->num_rows > 0) {
+        while ($row = $finding->fetch_assoc()){
+            $receiptID = $row['receiptID'];
+        }
+    }
+}
+catch (Exception $e) {
+    echo "<br>";
+    echo "<br>";
+    echo "ERROR: " . $e->getMessage();
+    echo "<br>";
+}
+
+
+
 $retrieve = "SELECT catalogueID, quantity FROM Cart WHERE receiptID = '$receiptID'";
 $result = $conn->query($retrieve);
 
@@ -58,9 +79,9 @@ if ($result->num_rows > 0) {
 }
 
 
-$finalData1[] = Array ( "items" => $data);
+$finalData1 = Array ( "items" => $data);
 http_response_code( 200 );
 echo json_encode(   [ "orderVars" => $_SESSION['orderVar'],
                         'items' => $finalData1,
-                        'items2'=> $_SESSION['orderVar']['cheatCart'] ] );
+                        'id'=> $receiptID ] );
 ?>

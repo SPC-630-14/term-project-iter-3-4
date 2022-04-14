@@ -310,7 +310,7 @@ app.controller("checkoutController", function ($scope, $http, $localStorage) {
     let res = JSON.stringify(response.data.items[0]);
     let ress = JSON.parse(res);
     $scope.items = ress;
-    console.log($scope.items);
+    //console.log($scope.items);
 
     for (let i in $scope.items.items) {
       $scope.totalCost =
@@ -442,7 +442,7 @@ app.controller("shoppingController", function ($scope, $http, $location) {
 
   $scope.$on("$locationChangeSuccess", function (event, newUrl, odURL) {
     $http.post("php/displayItems.php").then(function successCallback(response) {
-      console.log(response);
+      //console.log(response);
       if (response.data.msg == "false") {
         $scope.items = [];
         closeNav();
@@ -500,8 +500,9 @@ app.controller("invoiceController", function ($scope, $http, $location) {
   $http
     .post("php/retrieveInvoiceVars.php")
     .then(function successCallback(response) {
+      console.log(response);
       $scope.orderVars = response.data.orderVars;
-      $scope.items = response.data.items2[0].items;
+      $scope.items = response.data.items.items;
       console.log($scope.orderVars);
       console.log(response);
       var Neat =
@@ -520,4 +521,9 @@ app.controller("invoiceController", function ($scope, $http, $location) {
         parseFloat($scope.orderVars.storeLONG)
       );
     });
+});
+
+
+app.controller("profileController", function ($scope, $http) {
+  fnBrowserDetect();
 });

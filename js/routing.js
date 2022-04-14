@@ -92,6 +92,10 @@ app.config(function ($routeProvider) {
       templateUrl: "pages/invoice.html",
       controller: "invoiceController",
     })
+    .when("/profile", {
+      templateUrl: "pages/profile.html",
+      controller: "profileController",
+    })
 
     .otherwise({ redirectTo: "/" });
 });

@@ -56,7 +56,17 @@ if ($json['assembly'] == True) {
     $_SESSION['orderVar']['assembly'] = $json['assembly'];
     $_SESSION['orderVar']['assemblyType'] = $json['assemblyType'];
     $_SESSION['orderVar']['description'] = $json['description'];
-    $_SESSION['orderVar']['assemblyCost'] = floatval($_SESSION['orderVar']['totalQuantity']) * 7.82;
+
+    if ($_SESSION['orderVar']['assemblyType'] == "Standard") {
+        $_SESSION['orderVar']['assemblyCost'] = floatval($_SESSION['orderVar']['totalQuantity']) * 7.82;
+    }
+    if ($_SESSION['orderVar']['assemblyType'] == "Express") {
+        $_SESSION['orderVar']['assemblyCost'] = floatval($_SESSION['orderVar']['totalQuantity']) * 9.48;
+    }
+    if ($_SESSION['orderVar']['assemblyType'] == "LightSpeed") {
+        $_SESSION['orderVar']['assemblyCost'] = floatval($_SESSION['orderVar']['totalQuantity']) * 10.12;
+    }
+
 }
 else {
     $_SESSION['orderVar']['assembly'] = $json['assembly'];

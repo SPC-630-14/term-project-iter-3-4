@@ -149,5 +149,22 @@ function initMap(userLat, userLong, storeLat, storeLong) {
         }
     });
 }
+function fnBrowserDetect() {
+    let userAgent = navigator.userAgent;
+    let browserName;
+
+    if (userAgent.match(/chrome|chromium|crios/i)) {
+        browserName = "Chrome";
+    } else if (userAgent.match(/firefox|fxios/i)) {
+        browserName = "Firefox";
+    } else if (userAgent.match(/trident/i)) {
+        browserName = "Internet Explorer";
+    } else {
+        browserName = "No browser detection";
+    }
+
+    document.querySelector("#browser").innerText =
+        "Browser: " + browserName;
+}
 
 window.onload = loginReload();
