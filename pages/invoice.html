@@ -16,68 +16,76 @@
         <h4 class="invoice-item-Name">{{item.itemName}}</h4>
         <div class="reviewFinalItems-Description">
           <p style="font-size: 12px; color: grey">Qty: <span style="color: black">{{item.quantity}} </span></p>
-          <span  style="font-size: 12px; color: grey">$ {{item.quantity * item.cost}}</span>
+          <span style="font-size: 12px; color: grey">$ {{item.quantity * item.cost}}</span>
         </div>
       </div>
       <br>
       <p>
-        <b> Furniture Total Cost: </b><br> <span style="float:right; position: relative; bottom: 12px; font-size:16px">${{orderVars.totalCost}}</span>
+        <b> Furniture Total Cost: </b><br> <span
+          style="float:right; position: relative; bottom: 12px; font-size:16px">${{orderVars.totalCost}}</span>
       </p>
     </div>
-  <br>
-  <hr style="color:rgba(189, 189, 189,0.3);">
-  <br>
-  <div class="Invoice-Delivery">
-    <h1 class="titles">Delivery:</h1>
-    <p style="margin-bottom:10px; margin-top:10px;"> <b> Distance: </b>
-      <span style="float:right; position: relative; bottom: 12px; font-size:16px;">{{orderVars.distance}}</span>
-    </p>
-    <p style="margin-bottom:10px;"> <b> Delivery Cost: </b>
-      <span style="float:right; position: relative; bottom: 2px; font-size:16px">${{deliveryCost}}</span>
-    </p>
-    <p style="margin-bottom:10px;">
-      <b> Store Address: </b><br> <span style="float:right; position: relative; bottom: 12px; font-size:16px">{{orderVars.storeAddress}} </span>
-    </p>
-    <p style="margin-bottom:10px;">
-      <b> Destination: </b> <br>  <span style="float:right; position: relative; bottom: 12px; font-size:16px">{{orderVars.userAddress}} </span>
-    </p>
-  </div>
-  <!-- <hr style="color:rgba(189, 189, 189,0.3);"> -->
-  <br>
-  <div class="Invoice-Assembly">
-    <div ng-switch="orderVars.assembly">
-      <div ng-switch-default></div>
-      <div ng-switch-when="true">
-        <h1 class="titles">Assembly:</h1>
-        <p style="margin-bottom:10px; margin-top:10px;"> <b> Type: </b>
-          <span style="float:right; position: relative; bottom: 12px; font-size:16px">{{orderVars.assemblyType}}</span>
-        </p>
-        <p style="margin-bottom:10px; margin-top:10px;"> <b> Assembly Cost: </b>
-          <span style="float:right; position: relative; bottom: 12px; font-size:16px">${{assemblyCost}} </span>
-        </p>
-      </div>
-
+    <br>
+    <hr style="color:rgba(189, 189, 189,0.3);">
+    <br>
+    <div class="Invoice-Delivery">
+      <h1 class="titles">Delivery:</h1>
+      <p style="margin-bottom:10px; margin-top:10px;"> <b> Distance: </b>
+        <span style="float:right; position: relative; bottom: 12px; font-size:16px;">{{orderVars.distance}}</span>
+      </p>
+      <p style="margin-bottom:10px;"> <b> Delivery Cost: </b>
+        <span style="float:right; position: relative; bottom: 2px; font-size:16px">${{deliveryCost}}</span>
+      </p>
+      <p style="margin-bottom:10px;">
+        <b> Store Address: </b><br> <span
+          style="float:right; position: relative; bottom: 12px; font-size:16px">{{orderVars.storeAddress}} </span>
+      </p>
+      <p style="margin-bottom:10px;">
+        <b> Destination: </b> <br> <span
+          style="float:right; position: relative; bottom: 12px; font-size:16px">{{orderVars.userAddress}} </span>
+      </p>
     </div>
+    <!-- <hr style="color:rgba(189, 189, 189,0.3);"> -->
+    <br>
+    <div class="Invoice-Assembly">
+      <div ng-switch="orderVars.assembly">
+        <div ng-switch-default></div>
+        <div ng-switch-when="true">
+          <h1 class="titles">Assembly:</h1>
+          <p style="margin-bottom:10px; margin-top:10px;"> <b> Type: </b>
+            <span
+              style="float:right; position: relative; bottom: 12px; font-size:16px">{{orderVars.assemblyType}}</span>
+          </p>
+          <p style="margin-bottom:10px; margin-top:10px;"> <b> Assembly Cost: </b>
+            <span style="float:right; position: relative; bottom: 12px; font-size:16px">${{assemblyCost}} </span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <hr style="color:rgba(189, 189, 189,0.3);">
+    <br>
+    <div class="Invoice-Transaction">
+      <h1 class="titles">Payment:</h1>
+      <p style="margin-bottom:10px; margin-top:10px;"> <b> Transaction ID: </b>
+        <span style="float:right; position: relative; bottom: 12px; font-size:16px">{{orderVars.transactionID}}</span>
+      </p>
+      <p style="margin-bottom:10px; margin-top:10px;"> <b> Transaction Status: </b>
+        <span style="float:right; position: relative; bottom: 12px; font-size:16px">Complete</span>
+      </p>
+    </div>
+    <br>
+    <hr style="color:rgba(189, 189, 189,0.3);">
+    <br>
+    <div class="Invoice-Final">
+      <h1 style="margin-left: 810px; margin-top: 55px" class="\titles">Total Cost:</h1>
+      <p style=" clear:both ;font-size:30px;" name="totalCost"> <b style="color:#363636;"></b>
+        <span style="float:right; position: relative; bottom: 35px;">${{totalDeliveryCost}}</span>
+      </p>
+    </div>
+    <br>
+    <!-- <hr style="color:rgba(189, 189, 189,0.3);"> -->
+    <div class="invoice-Box"></div>
   </div>
-  <hr style="color:rgba(189, 189, 189,0.3);">
-  <br>
-  <div class="Invoice-Transaction">
-    <h1 class="titles">Payment:</h1>
-    <p style="margin-bottom:10px; margin-top:10px;"> <b> Transaction ID: </b>
-      <span style="float:right; position: relative; bottom: 12px; font-size:16px">{{orderVars.transactionID}}</span>
-    </p>
-  </div>
-  <br>
-  <hr style="color:rgba(189, 189, 189,0.3);">
-  <br>
-  <div class="Invoice-Final">
-    <h1 style="margin-left: 810px; margin-top: 55px"class="\titles">Total Cost:</h1>
-    <p style=" clear:both ;font-size:30px;" name="totalCost"> <b style="color:#363636;"></b>
-      <span style="float:right; position: relative; bottom: 35px;">${{totalDeliveryCost}}</span> </p>
-  </div>
-  <br>
-  <!-- <hr style="color:rgba(189, 189, 189,0.3);"> -->
-  <div class="invoice-Box"></div>
-</div>
-<div id="map"></div>
+  <div id="map"></div>
 </body>
