@@ -23,7 +23,12 @@ if ( !empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST' && !empty($_POST['a
         retrieveValidLogins();
         foreach ($_SESSION['validLogins'] as $login) {
             // echo $login[0] . " " . $login[1] . "<br>";
-            if ($login[0] == $_POST['username'] && $login[1] == $_POST['password']) {
+
+            $saltpass = $_POST['password'] . $login[5];
+            
+            $password = md5($saltpass);
+            
+            if ($login[0] == $_POST['username'] && $password == $login[1]) {
     
                 $_SESSION['loggedUser'] = $login[0];
                 $_SESSION['userType'] = $login[2];
@@ -41,7 +46,7 @@ if ( !empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST' && !empty($_POST['a
         $errors .= '<li>Not a Valid Login</li>';
         unset($_SESSION['validLogins']);
         http_response_code( 406 ); 
-        echo json_encode( [ 'msg' => $errors ] );
+        echo json_encode( [ 'msg' =>$password] );
     }
     else {
 

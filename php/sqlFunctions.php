@@ -71,7 +71,7 @@ function retrieveValidLogins() {
     $conn = connectDB();
     if ($conn) {
 
-        $showLogin = "SELECT loginID, password, type, userID, address FROM User";
+        $showLogin = "SELECT * FROM User";
         $result = $conn->query($showLogin);
 
         if (session_status() == PHP_SESSION_NONE) {
@@ -79,7 +79,7 @@ function retrieveValidLogins() {
         }
         $_SESSION['validLogins'] = array ();
         while ($row = $result->fetch_assoc()) {
-            $appending = array ($row['loginID'],$row['password'], $row['type'], $row['userID'], $row['address']);
+            $appending = array ($row['loginID'],$row['password'], $row['type'], $row['userID'], $row['address'], $row['salt']);
             if (!(in_array($appending, $_SESSION['validLogins']))) {
                 array_push($_SESSION['validLogins'], $appending);
             }

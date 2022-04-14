@@ -21,10 +21,11 @@ $("form").on("submit", function (e) {
     },
     error: function (response) {
       //http: 406 is error
-      let res = JSON.parse(response.responseText);
-      $("#dialog1").html(res.msg);
-      $("#dialog1").show();
-      $("#dialog1").dialog();
+      console.log(response);
+      //let res = JSON.parse(response.responseText);
+      // $("#dialog1").html(res.msg);
+      // $("#dialog1").show();
+      // $("#dialog1").dialog();
     },
   });
 });
