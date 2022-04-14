@@ -225,24 +225,30 @@ $insertItemBins = array (
         VALUES ('BIN5','Pedal Waste Bin', 9.99, 2, 25.00, 30.00,30.00,50.00,'black','aboutUsImages/Bathroom/Bins/Pedal-Waste-Bin.JPG')",
 );
 
-// $creditCart1 = "1234123412341234";
-// $creditCart2 = "6262626262626262";
-// $creditCart3 = "8989898989898989";
+$creditCart1 = "1234123412341234";
+$creditCart2 = "6262626262626262";
+$creditCart3 = "8989898989898989";
 
-// $salt = generateRandomSalt();
+$salt1 = generateRandomSalt();
+$salt2 = generateRandomSalt();
+$salt3 = generateRandomSalt();
 
-// $saltpass = $p.$salt;
-// $md5pass = md5($saltpass);
+$saltpass1 = $creditCart1.$salt;
+$saltpass2 = $creditCart2.$salt;
+$saltpass3 = $creditCart3.$salt;
 
+$md5pass1 = md5($saltpass1);
+$md5pass2 = md5($saltpass2);
+$md5pass3 = md5($saltpass3);
 
 
 $insertCards = array (
-    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC) 
-        VALUES (1, 'Georgz Ilagan', '4545454545454545', '06/30', 321)",
-    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC) 
-        VALUES (2, 'Ralph Liton', '6262626262626262', '06/30', 321)",
-    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC) 
-        VALUES (3, 'Jacob Rokhvarg', '8989898989898989', '06/30', 321)"
+    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC, last4Digits, salt) 
+        VALUES (1, 'Georgz Ilagan', '$md5pass1', '06/30', 321, '1234', '$salt1')",
+    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC, last4Digits, salt) 
+        VALUES (2, 'Ralph Liton', '$md5pass2', '06/30', 321, '6262', '$salt2')",
+    "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC, last4Digits, salt) 
+        VALUES (3, 'Jacob Rokhvarg', '$md5pass3', '06/30', 321, '8989', '$salt3')"
 );
 
 $insertAssembly = array (

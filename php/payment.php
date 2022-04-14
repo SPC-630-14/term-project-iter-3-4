@@ -31,10 +31,16 @@ if ( !empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST' && !empty($_POST['a
         $conn = connectDB();
 
         $user = $_SESSION['userID'];
-        // I will remove default soon
 
-        $newPaymentMethod = "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC) 
-        VALUES ( '$user', '$nameOnCard ', '$creditCardNumber', '$expirationDate', $CVC)";
+        $last4Digits = substr($creditCardNumber, 12,4);
+
+        $salt = base64_encode(random_bytes(12));
+        $saltpass = $creditCardNumber.$salt;
+        $md5pass = md5($saltpass);
+
+
+        $newPaymentMethod = "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC, salt, last4Digits) 
+        VALUES ( '$user', '$nameOnCard ', '$md5pass', '$expirationDate', $CVC, '$salt', '$last4Digits')";
 
 
         try {
