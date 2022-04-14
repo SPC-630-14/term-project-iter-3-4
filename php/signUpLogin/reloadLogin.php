@@ -5,7 +5,9 @@ if (session_status() == PHP_SESSION_NONE) {
     if (isset($_SESSION['loggedUser'])){
         $user = $_SESSION['loggedUser'];
         http_response_code ( 200 );
-        echo json_encode( [ 'user' => $user ] );
+        echo json_encode( [ 'user' => $user,
+                            'userType' => $_SESSION['userType']
+                        ] );
   
     }
     else {

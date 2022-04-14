@@ -12,7 +12,12 @@ $("form").on("submit", function (e) {
       console.log(res);
       alert(res.msg);
       if (res.msg == "Your Logged In!") {
-        document.getElementById("login").setAttribute("href", "http://localhost/phpmyadmin/index.php?route=/database/structure&server=1&db=termproject");
+        if (res.userType == "Admin") {
+          document.getElementById("login").setAttribute("href", "http://localhost/phpmyadmin/index.php?route=/database/structure&server=1&db=termproject");
+        }
+        else {
+          document.getElementById("login").setAttribute("href", "#!");
+        }
         document.getElementById("login-Btn").innerHTML = res.user;
         login();
         document.getElementById("log-out").setAttribute("href", "#!logOut");
