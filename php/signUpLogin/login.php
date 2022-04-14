@@ -46,7 +46,7 @@ if ( !empty($_POST) && $_SERVER["REQUEST_METHOD"] === 'POST' && !empty($_POST['a
         $errors .= '<li>Not a Valid Login</li>';
         unset($_SESSION['validLogins']);
         http_response_code( 406 ); 
-        echo json_encode( [ 'msg' =>$password] );
+        echo json_encode( [ 'msg' =>$errors] );
     }
     else {
 

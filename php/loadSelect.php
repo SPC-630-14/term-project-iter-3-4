@@ -51,7 +51,7 @@ if ($conn) {
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $creditCard = "Card with an Expirate Date of: ".$row['expirationDate'];
+            $creditCard = "************".$row['last4Digits'];
             $id = $row['cardID'];
             $hold = Array(
                 'payment' => $creditCard,
