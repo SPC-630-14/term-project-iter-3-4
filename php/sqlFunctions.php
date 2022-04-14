@@ -90,12 +90,17 @@ function retrieveValidLogins() {
     }
 }
 
+
 function createNewLogin($firstName, $lastname, $telephone, $email, $address, $loginID, $password) {
     $conn = connectDB();
     if ($conn) {
 
-        $newLogin = "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password) 
-        VALUES ('$firstName', '$lastname', '$telephone', '$email', '$address', '$loginID', '$password')";
+        $salt = base64_encode(random_bytes(12));
+        $saltpass = $password.$salt;
+        $md5pass = md5($saltpass);
+
+        $newLogin = "INSERT INTO User (firstname, lastname, telephone, email, address, loginID, password, salt) 
+        VALUES ('$firstName', '$lastname', '$telephone', '$email', '$address', '$loginID', '$md5pass', '$salt')";
 
         try {
             $conn->query($newLogin);

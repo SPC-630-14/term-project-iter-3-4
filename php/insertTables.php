@@ -225,6 +225,17 @@ $insertItemBins = array (
         VALUES ('BIN5','Pedal Waste Bin', 9.99, 2, 25.00, 30.00,30.00,50.00,'black','aboutUsImages/Bathroom/Bins/Pedal-Waste-Bin.JPG')",
 );
 
+// $creditCart1 = "1234123412341234";
+// $creditCart2 = "6262626262626262";
+// $creditCart3 = "8989898989898989";
+
+// $salt = generateRandomSalt();
+
+// $saltpass = $p.$salt;
+// $md5pass = md5($saltpass);
+
+
+
 $insertCards = array (
     "INSERT INTO Card (userID, nameOnCard, creditCardNumber, expirationDate, CVC) 
         VALUES (1, 'Georgz Ilagan', '4545454545454545', '06/30', 321)",
