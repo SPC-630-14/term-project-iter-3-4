@@ -92,7 +92,13 @@ function loginReload() {
         url: "php/signUpLogin/reloadLogin.php",
         success: function (response) {
             let res = JSON.parse(response);
-            document.getElementById("login").setAttribute("href", "#!");
+
+            if (res.userType == "Admin") {
+                document.getElementById("login").setAttribute("href", "http://localhost/phpmyadmin/index.php?route=/database/structure&server=1&db=termproject");
+            }
+            else {
+                document.getElementById("login").setAttribute("href", "#!");
+            }
             document.getElementById("login-Btn").innerHTML = res.user;
             login();
             document.getElementById("log-out").setAttribute("href", "#!logOut");
