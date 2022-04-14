@@ -1,5 +1,5 @@
 /* Still needs to be linked */
-.Thank-you-container{
+/* .Thank-you-container{
     margin-top:15%;
 }
 .Thank-you{
@@ -14,4 +14,79 @@ padding: 10px;
 margin-top: 40px;
 width: 200px;
 
+} */
+
+/* .Invoice-Items,
+.Invoice-Delivery,
+.Invoice-Assembly,
+.Invoice-Final,
+.Invoice-Transaction {
+  text-align: center;
 }
+
+.invoice-images {
+  margin-top: 10px;
+  width: 105px;
+  height: 105px;
+}
+
+p {
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+b {
+  font-size: 16px;
+  color: #363636;
+}
+
+.titles {
+  margin-bottom: 20px;
+  font-weight: lighter;
+  color: #363636;
+}
+
+#map {
+  bottom: 15px;
+  height: 100vh;
+  width: 100%;
+} */
+
+.Invoice-Items{
+    width:1100px; 
+    margin:200px auto;
+}
+
+.invoice-Box{
+    height: 1400px;
+    width: 1300px;
+    background-color:#f5f5f5;
+    border-radius: 10px;
+    z-index: -1;
+    position:absolute;
+    left: 300px;
+    top: 200px;
+
+}
+
+.Invoice-Summary-HR{
+    margin-bottom: 25px;
+    border-top: 1px solid #ccc;
+}
+
+.invoice-images {
+    margin-top: 10px;
+    width: 105px;
+    height: 105px;
+    border-radius: 5px
+  }
+
+  #map {
+    margin-top:500px;
+    bottom: 15px;
+    height: 100vh;
+    margin-left:16%;
+    margin-right:16%;
+    margin-bottom:100px;
+  }
+
