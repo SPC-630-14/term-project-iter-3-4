@@ -9,18 +9,17 @@
     <title>Sign Up!</title>
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootsthapcdn.com/bootsthap/3.4.0/css/bootsthap.min.css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootsthapcdn.com/bootsthap/3.4.0/js/bootsthap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/databaseMaintain/databaseWIP.css"> 
+    <script src="https://maxcdn.bootsthapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </head>
 
   <body>
     <div>
       <div class="container">
-        <h1>Pain</h1>
-        <h3>Suffering</h3>
+        <h1>Admins Only</h1>
+        <h3>Please</h3>
         <form method="post" action="databaseWIP.php">
           <div class="form-group">
             <button

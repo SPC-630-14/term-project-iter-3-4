@@ -527,3 +527,9 @@ app.controller("invoiceController", function ($scope, $http, $location) {
 app.controller("profileController", function ($scope, $http) {
   fnBrowserDetect();
 });
+
+app.controller("mainController", function ($scope, $http) {
+  $scope.checkBrowser = function () {
+    fnBrowserDetect();
+  }
+});

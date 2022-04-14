@@ -139,16 +139,16 @@ function fnBrowserDetect() {
   let browserName;
 
   if (userAgent.match(/chrome|chromium|crios/i)) {
-    browserName = "Chrome";
+    browserName = "You are using a Chromium-based Browser";
   } else if (userAgent.match(/firefox|fxios/i)) {
-    browserName = "Firefox";
+    browserName = "You are using Firefox";
   } else if (userAgent.match(/trident/i)) {
-    browserName = "Internet Explorer";
+    browserName = "You are using Internet Explorer";
   } else {
-    browserName = "No browser detection";
+    browserName = "ʕノ•ᴥ•ʔノ ︵ ┻━┻";
   }
 
-  document.querySelector("#browser").innerText = "Browser: " + browserName;
+  alert(browserName);
 }
 
 window.onload = loginReload();

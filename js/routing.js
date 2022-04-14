@@ -3,6 +3,7 @@ app.config(function ($routeProvider) {
   $routeProvider
     .when("/", {
       templateUrl: "pages/main.html",
+      controller: "mainController",
     })
     .when("/aboutus", {
       templateUrl: "pages/aboutus.html",
