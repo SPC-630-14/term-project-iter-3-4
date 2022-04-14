@@ -495,3 +495,29 @@ app.controller("shoppingController", function ($scope, $http, $location) {
 //     }
 //   });
 // });
+
+app.controller("invoiceController", function ($scope, $http, $location) {
+  $http
+    .post("php/retrieveOrderVars.php")
+    .then(function successCallback(response) {
+      $scope.orderVars = response.data.orderVars;
+      $scope.items = response.data.items[0].items;
+      console.log($scope.orderVars);
+      console.log($scope.items);
+      var Neat =
+        parseFloat($scope.orderVars.totalCost) +
+        $scope.orderVars.tripCost +
+        $scope.orderVars.assemblyCost;
+      $scope.deliveryCost = $scope.orderVars.tripCost.toFixed(2);
+      $scope.totalDeliveryCost = Neat.toFixed(2);
+      $scope.assemblyCost = $scope.orderVars.assemblyCost.toFixed(2);
+      //console.log($scope.totalDeliveryCost)
+
+      initMap(
+        parseFloat($scope.orderVars.userLAT),
+        parseFloat($scope.orderVars.userLONG),
+        parseFloat($scope.orderVars.storeLAT),
+        parseFloat($scope.orderVars.storeLONG)
+      );
+    });
+});

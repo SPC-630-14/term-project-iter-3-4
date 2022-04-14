@@ -90,6 +90,7 @@ app.config(function ($routeProvider) {
     })
     .when("/invoice", {
       templateUrl: "pages/invoice.html",
+      controller: "invoiceController",
     })
 
     .otherwise({ redirectTo: "/" });
