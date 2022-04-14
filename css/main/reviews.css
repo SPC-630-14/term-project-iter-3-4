@@ -21,11 +21,15 @@
   border-radius: 5px;
 }
 #description-review{
-    font-size: 14px;
     border-bottom-right-radius: 20px;
-    background-color: #f5f5f5;
-    width: 550px;
     padding: 0 0 200px;
+    width: 550px;
+    background-color: #f5f5f5;
+    border: 1px solid lightgrey;
+
+}
+textarea {
+  resize: none;
 }
 
 #submit-R, #submit-SR{

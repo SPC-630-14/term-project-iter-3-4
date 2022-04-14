@@ -14,6 +14,7 @@
             <label for="itemReview">Please Select Item to Review:</label>
             <br>
             <select id="itemReview" name="itemReview" >
+                <option hidden disabled selected value> Select Item </option>
                 <optgroup label="Chairs">
                     <option value="CHA1">CHA1</option>
                     <option value="CHA2">CHA2</option>
@@ -110,6 +111,7 @@
             <label for="rating">Please define a rating number</label>
             <br>
             <select id="rating" name="rating">
+                <option hidden disabled selected value> Select Rating </option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -122,7 +124,7 @@
             
             <label for="review">Type in your review about our company here!</label>
             <br><br>
-            <textarea type="text" id="description-review" name="description-review"> </textarea>
+            <textarea type="text" id="description-review" name="description-review" placeholder="Describe yourself here..."> </textarea>
             <br><br>
 
             <button id="submit-R" class="submitReviews" type="submit" class="btn btn-info" name="button" value="submit">Submit Review</button>

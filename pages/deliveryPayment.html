@@ -6,8 +6,8 @@
 <body>
   <div class="reviewDelivery-Box">
     <form name="deliveryPaymentForm" ng-submit="submitFormData()">
-      <label class="store-Branch"> Choose Payment:</label><br />
-      <select id="payment" name="store" class="store-Branch-Select" ng-model="formData.payment">
+      <label class="store-Payment"> Choose Payment:</label><br />
+      <select id="payment" name="store" class="store-Payment-Select" ng-model="formData.payment">
         <option ng-model="payment" ng-repeat="card in paymentMethods" value="{{card.id}}">
           {{card.payment}}
         </option>
@@ -35,14 +35,15 @@
 
       <br />
 
-      <label class="store-Time">Assembly at Delivery</label><br>
+      <label class="assembly-Delivery">Assembly at Delivery</label><br>
 
-      <input type="checkbox" ng-model="formData.assembly" name="vehicle1" value="Bike">
+      <input class="assembly-Checkbox" type="checkbox" ng-model="formData.assembly" name="vehicle1" value="Bike">
       <label for="vehicle1">I want my items assembled at delivery</label><br>
 
       <div ng-switch="formData.assembly">
         <div ng-switch-when="true">
-          <select ng-model="formData.assemblyType">
+          <select id="assembly-Select" ng-model="formData.assemblyType">
+            <option hidden disabled selected value> Select an option </option>
             <option value="Standard">
               Standard Assembly
             </option>
@@ -53,7 +54,7 @@
               Light Speed Assembly
             </option>
           </select>
-          <textarea ng-model="formData.description" rows="5" cols="40"
+          <textarea id="assembly-Description" ng-model="formData.description" rows="5" cols="40"
             placeholder="Tell us how you want it done!"></textarea>
         </div>
         <div ng-switch-default></div>
